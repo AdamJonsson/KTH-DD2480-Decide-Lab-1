@@ -12,4 +12,18 @@ public class LaunchInterceptorConditionsTest {
         LaunchInterceptorConditions.condition0(new int[2], 20);
         assertEquals(true, true);
     }
+
+    /**
+     * Testing valid data for condition 0
+     * @result true
+     */
+    @Test
+    void co0_1() {
+        int[] xList = {0, 1};
+        int[] yList = {0, 1};
+        int length1 = 2;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
+        assertEquals(result, true);
+    }
+
 }
