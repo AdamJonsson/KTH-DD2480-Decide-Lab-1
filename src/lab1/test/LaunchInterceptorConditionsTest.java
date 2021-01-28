@@ -19,20 +19,76 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_1() {
-        int[] xList = {0, 1};
-        int[] yList = {0, 1};
+        int[] xList = new int[]{0, 1};
+        int[] yList = new int[]{0, 1};
         int length1 = 2;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, true);
     }
-    // Testing negative numbers for condition 0
+
+    /**
+     * Testing valid negative data for condition 0
+     * @result true
+     */
     @Test
     void co0_2() {
-        int[] xList = {-1, 0};
-        int[] yList = {4, -1};
+        int[] xList = new int[]{-1, 0};
+        int[] yList = new int[]{4, -1};
         int length1 = 12;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, true);
+    }
+
+    /**
+     * Testing empty data for condition 0
+     * @result false
+     */
+    @Test
+    void co0_3() {
+        int[] xList = new int[]{};
+        int[] yList = new int[]{};
+        int length1 = 0;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Testing empty data for condition 0
+     * @result false
+     */
+    @Test
+    void co0_4() {
+        int[] xList = new int[]{};
+        int[] yList = new int[]{};
+        int length1 = 20;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
+        assertEquals(result, true);
+    }
+
+    /**
+     * Testing valid data for condition 0
+     * @result false
+     */
+    @Test
+    void co0_5() {
+        int[] xList = new int[]{3, 4, 5};
+        int[] yList = new int[]{3, 4, 5};
+        int length1 = 1;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Testing large valid data for condition 0
+     * @result false
+     */
+    @Test
+    void co0_6() {
+        int[] xList = new int[]{37545, 954326, 68643, 68887, 1, 0, 765};
+        int[] yList = new int[]{656, 65, 1, 345, 678, -7};
+        int length1 = 1;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
+        assertEquals(result, false);
     }
     
 }
