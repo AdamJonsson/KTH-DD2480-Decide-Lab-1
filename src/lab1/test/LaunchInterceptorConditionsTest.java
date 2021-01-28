@@ -25,5 +25,14 @@ public class LaunchInterceptorConditionsTest {
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, true);
     }
-
+    // Testing negative numbers for condition 0
+    @Test
+    void co0_2() {
+        int[] xList = {-1, 0};
+        int[] yList = {4, -1};
+        int length1 = 12;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
+        assertEquals(result, true);
+    }
+    
 }
