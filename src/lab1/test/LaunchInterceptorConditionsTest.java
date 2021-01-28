@@ -225,5 +225,46 @@ public class LaunchInterceptorConditionsTest {
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
+
+    /* CONDITION 2 */
+
+    /**
+     * Testing valid data for angle of pi between points
+     * @result false
+     */
+    @Test
+    void co2_1() {
+        int[] xList = new int[]{0, 1, 2};
+        int[] yList = new int[]{0, 0, 0};
+        int epsilon = 1;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Testing empty data
+     * @result false
+     */
+    @Test
+    void co2_2() {
+        int[] xList = new int[]{};
+        int[] yList = new int[]{};
+        int epsilon = 3;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Testing valid data
+     * @result true
+     */
+    @Test
+    void co2_3() {
+        int[] xList = new int[]{3, 4, 5};
+        int[] yList = new int[]{3, 4, 5};
+        int epsilon = 0;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
+        assertEquals(result, true);
+    }
     
 }
