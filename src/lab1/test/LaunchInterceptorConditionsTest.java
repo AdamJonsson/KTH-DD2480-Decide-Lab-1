@@ -266,5 +266,31 @@ public class LaunchInterceptorConditionsTest {
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
         assertEquals(result, true);
     }
+
+    /**
+     * Testing single data point
+     * @result false
+     */
+    @Test
+    void co2_4() {
+        int[] xList = new int[]{3};
+        int[] yList = new int[]{3};
+        int epsilon = 3;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Testing two data points
+     * @result false
+     */
+    @Test
+    void co2_5() {
+        int[] xList = new int[]{3, 4};
+        int[] yList = new int[]{3, 4};
+        int epsilon = 3;
+        boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
+        assertEquals(result, false);
+    }
     
 }
