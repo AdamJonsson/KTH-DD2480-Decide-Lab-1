@@ -62,7 +62,7 @@ public class LaunchInterceptorConditions {
     }
 
     /**
-     * Returns true if the the following conditions are true: angle < (PI - epsilon)
+     * Returns true if the following conditions are true: angle < (PI - epsilon)
      * or angle > (PI + epsilon). The second point of the three points is always the
      * vertex of the angle.
      * 
