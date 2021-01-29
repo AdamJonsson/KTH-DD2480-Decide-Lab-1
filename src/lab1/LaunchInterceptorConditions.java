@@ -9,6 +9,10 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
+    public static boolean helperDistance(double x1, double y1, double x2, double y2, double length1) {
+        return false;
+    }
+
     public static boolean condition2() {
         return false;
     }
