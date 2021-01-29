@@ -12,7 +12,7 @@ public class LaunchInterceptorConditionsTest {
     void angleBetweenPointsEpsilonNotValid() {
         double[] x = new double[]{-2, 0, 2};
         double[] y = new double[]{1, 0, 1};
-        var result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], 4);
+        boolean result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], 4);
         assertEquals(false, result);
     }
 
@@ -21,7 +21,7 @@ public class LaunchInterceptorConditionsTest {
     void angleBetweenAngleNoValid() {
         double[] x = new double[]{0, 0, 2};
         double[] y = new double[]{0, 0, 1};
-        var result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], 4);
+        boolean result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], 4);
         assertEquals(false, result);
     }
 
@@ -30,7 +30,7 @@ public class LaunchInterceptorConditionsTest {
     void angleBetweenAngleWithinEpsilon() {
         double[] x = new double[]{-1, 0, 1};
         double[] y = new double[]{0, 0, 0};
-        var result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], Math.PI / 4);
+        boolean result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], Math.PI / 4);
         assertEquals(false, result);
     }
 
@@ -39,7 +39,7 @@ public class LaunchInterceptorConditionsTest {
     void angleBetweenAngleOutsideEpsilon() {
         double[] x = new double[]{-1, 0, 1};
         double[] y = new double[]{1, 0, 1};
-        var result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], Math.PI / 3);
+        boolean result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], Math.PI / 3);
         assertEquals(true, result);
     }
 
