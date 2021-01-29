@@ -14,39 +14,43 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(true, true);
     }
 
-
-    /** Condition12: The condition should return false as the number of points are less than three  */
+    /**
+     * Condition12: The condition should return false as the number of points are
+     * less than three
+     */
     @Test
     void condition12NumPointsInvalid() {
-        double[] x = new double[] {1, 2};
+        double[] x = new double[] { 1, 2 };
         double[] y = x;
         boolean result = LaunchInterceptorConditions.condition12(x, y, 1, 0, 0, 2);
         assertEquals(result, false);
     }
 
-    /** Condition12: The condition should return false as the length2 are less than 0  */
+    /**
+     * Condition12: The condition should return false as the length2 are less than 0
+     */
     @Test
     void condition12MaxLengthInvalid() {
-        double[] x = new double[] {1, 2, 3, 4};
+        double[] x = new double[] { 1, 2, 3, 4 };
         double[] y = x;
         boolean result = LaunchInterceptorConditions.condition12(x, y, 2, -2, -1, 4);
         assertEquals(result, false);
     }
 
-    /** Condition12: If the K_PTS are greater than the   */
+    /** Condition12: If the K_PTS are greater than the */
     @Test
     void condition12KptsInvalid() {
-        double[] x = new double[] {1, 2, 3, 4};
+        double[] x = new double[] { 1, 2, 3, 4 };
         double[] y = x;
         boolean result = LaunchInterceptorConditions.condition12(x, y, 3, 0, -1, 4);
         assertEquals(result, false);
     }
 
-    /** Condition12: Tests number of conditions were the condition should be met  */
+    /** Condition12: Tests number of conditions were the condition should be met */
     @Test
     void condition12DataPointAndDistances() {
-        double[] x = new double[] {-1, 0, 2, 5, 9, 14, 20};
-        double[] y = new double[] {-1, 0, 2, 5, 9, 14, 20};
+        double[] x = new double[] { -1, 0, 2, 5, 9, 14, 20 };
+        double[] y = new double[] { -1, 0, 2, 5, 9, 14, 20 };
 
         double marginCheckAmount = 0.1;
 
@@ -64,4 +68,28 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(LaunchInterceptorConditions.condition12(x, y, 0, (15.55 + marginCheckAmount), (4.24 + marginCheckAmount), 7), false);
         assertEquals(LaunchInterceptorConditions.condition12(x, y, 0, (15.55 - marginCheckAmount), (4.24 - marginCheckAmount), 7), false);
     }
+
+    /** Condition13: Test to have an invalid number of points */
+    @Test
+    void condition13NumOfPointsInvalid() {
+        // Points on the unit circles, including a point in the origin.
+        double[] x = new double[] { 0, 1, -1, 0};
+        double[] y = new double[] { 0, 0, 0, -1};
+        assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1.1, 1, 5), false);
+    }
+
+    /** Condition13: Test tha the condition behaves as suspected when points are located on the unit circle */
+    @Test
+    void condition13PointsOnUnitCircle() {
+        // Points on the unit circles, including a point in the origin.
+        double[] x = new double[] { 0, 1, -1, 0, 0};
+        double[] y = new double[] { 0, 0, 0, -1, 1};
+
+        // Using A_PTS = B_PTS = 0, should only make it possible to create a unit circle as the smallest circle to contain three data points.
+        assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1.1, 1, 5), true);
+        assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1.1, 0.9, 5), false);
+        assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1, 1, 5), false);
+    }
+
+
 }
