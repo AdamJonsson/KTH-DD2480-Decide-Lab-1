@@ -41,7 +41,7 @@ public class LaunchInterceptorConditionsTest {
      * the triangles have an area larger than AREA1.
      */
     @Test
-    void lic3_InvalidInput_NoTriangleGreaterThanArea1() {
+    void lic3_ValidInput_NoTriangleGreaterThanArea1() {
         double[] x = new double[]{0, 2, 5, 6};
         double[] y = new double[]{0, 0, 2, 0};
         double area1 = 5;
@@ -53,7 +53,7 @@ public class LaunchInterceptorConditionsTest {
      * exist any triangle.
      */
     @Test
-    void lic3_InvalidInput_LessThanThreePoints() {
+    void lic3_ValidInput_LessThanThreePoints() {
         double[] x = new double[]{0, 2};
         double[] y = new double[]{0, 0};
         double area1 = 0.01;
@@ -70,7 +70,7 @@ public class LaunchInterceptorConditionsTest {
      * Testing the function for LIC 3 with a set of data that do not contain any triangle.
      */
     @Test
-    void lic3_InvalidInput_NoTriangle() {
+    void lic3_ValidInput_NoTriangle() {
         double[] x = new double[]{0, 2, 5, 6};
         double[] y = new double[]{1, 1, 1, 1};
         double area1 = 0.01;
@@ -95,7 +95,7 @@ public class LaunchInterceptorConditionsTest {
      * Testing a sequence of points that contain Q_PTS consecutive points in more than QUADS quadrants.
      */
     @Test
-    void lic4_ValidInput() {
+    void lic4_ValidInput_Contains() {
         double[] x = new double[]{1, 1, -1, 3};
         double[] y = new double[]{1, 3, 2, 2};
         int quads = 1;
@@ -115,7 +115,7 @@ public class LaunchInterceptorConditionsTest {
      * points in more than QUADS quadrants.
      */
     @Test
-    void lic4_InvalidInput() {
+    void lic4_ValidInput_DoesNotContain() {
         double[] x = new double[]{1, 1, -1, 3};
         double[] y = new double[]{1, 3, 2, 2};
         int quads = 2;
@@ -171,4 +171,44 @@ public class LaunchInterceptorConditionsTest {
         int quads2 = 4;
         assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition4(x, y, quads2));
     }
+
+    /**
+     * Testing with a valid input that contains two consecutive data points
+     * that fulfills X[j] - X[i] < 0.
+     */
+    @Test
+    void lic5_ValidInput_ContainsTwoPoint() {
+        double[] x = new double[]{1.25, 4, 2, 3};
+        double[] y = new double[]{1, 1, 1, 1};
+        assertTrue(LaunchInterceptorConditions.condition5(x, y));
+    }
+
+    /**
+     * Testing with a valid input that do not contain two consecutive data points
+     * that fulfills X[j] - X[i] < 0.
+     */
+    @Test
+    void lic5_ValidInput_DoNotContainsTwoPoint() {
+        double[] x = new double[]{1, 2, 3};
+        double[] y = new double[]{1, 1, 1};
+        assertFalse(LaunchInterceptorConditions.condition5(x, y));
+        x = new double[]{1, 2, 2};
+        assertFalse(LaunchInterceptorConditions.condition5(x, y));
+    }
+
+
+    /**
+     * Testing with a valid input that contains less than two data points.
+     */
+    @Test
+    void lic5_ValidInput_LessThanTwoPoints() {
+        double[] x = new double[]{1};
+        double[] y = new double[]{1};
+        assertFalse(LaunchInterceptorConditions.condition5(x, y));
+        x = new double[]{};
+        y = new double[]{};
+        assertFalse(LaunchInterceptorConditions.condition5(x, y));
+    }
 }
+
+

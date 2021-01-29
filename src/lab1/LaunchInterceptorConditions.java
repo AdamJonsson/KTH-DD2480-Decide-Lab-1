@@ -21,7 +21,7 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition5() {
+    public static boolean condition5(double[] x, double[] y) {
         return false;
     }
 
