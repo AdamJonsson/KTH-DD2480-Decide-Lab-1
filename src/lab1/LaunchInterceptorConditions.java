@@ -13,7 +13,7 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition3() {
+    public static boolean condition3(double[] x, double[] y, double area1) {
         return false;
     }
 
