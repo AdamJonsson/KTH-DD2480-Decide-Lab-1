@@ -14,8 +14,8 @@ public class LaunchInterceptorConditions {
      * @param a       area to check
      * @return True or false if conditions are met
      */
-    public static pointsAreGreaterThanArea(double x1, double y1, double x2, double y2, double x3, double y3, double a) {
-        return (Math.abs(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2)))*0.5 >= a;
+    public static boolean triangleAreaIsGreaterThanArea(double x1, double y1, double x2, double y2, double x3, double y3, double a) {
+        return (Math.abs(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2)))*0.5 > a;
     }
 
     public static boolean condition0() {
