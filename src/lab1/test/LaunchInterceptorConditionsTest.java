@@ -91,5 +91,40 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1, 1, 5), false);
     }
 
+    /** Condition14: Test when there exist an area greater than AREA1 and a area less then AREA2 */
+    @Test
+    void condition14InvalidNumberOfPoints() {
+        // Points that have two triangles when using E_PTS = F_PTS = 1. One with area 1 and another with area 2
+        double[] x = new double[] { 0, 0, 0, 0};
+        double[] y = new double[] { 0, 0, 1, 2};
+
+        // Using E_PTS = F_PTS = 1, the condition should find two triangles that meet the condition 
+        assertEquals(LaunchInterceptorConditions.condition14(x, y, 1, 1, 1.9, 1.1, 4), false);
+    }
+
+    /** Condition14: Test when there exist an area greater than AREA1 and a area less then AREA2 */
+    @Test
+    void condition14CorrectAreaForCondition() {
+        // Points that have two triangles when using E_PTS = F_PTS = 1. One with area 1 and another with area 2
+        double[] x = new double[] { 0, 0, 0, 0, 1, 2};
+        double[] y = new double[] { 0, 0, 1, 2, 0, 0};
+
+        // Using E_PTS = F_PTS = 1, the condition should find two triangles that meet the condition 
+        assertEquals(LaunchInterceptorConditions.condition14(x, y, 1, 1, 1.9, 1.1, 6), true);
+    }
+
+    /** Condition14: Test when there do not exist an area greater than AREA1 and a area less then AREA2 */
+    @Test
+    void condition14IncorrectAreaForCondition() {
+        // Points that have two triangles when using E_PTS = F_PTS = 1. One with area 1 and another with area 2
+        double[] x = new double[] { 0, 0, 0, 0, 1, 2};
+        double[] y = new double[] { 0, 0, 1, 2, 0, 0};
+
+        // Using E_PTS = F_PTS = 1, the condition should find not find triangles that meet the condition 
+        assertEquals(LaunchInterceptorConditions.condition14(x, y, 1, 1, 2.1, 0.9, 6), false);
+        assertEquals(LaunchInterceptorConditions.condition14(x, y, 1, 1, 1.9, 0.9, 6), false);
+        assertEquals(LaunchInterceptorConditions.condition14(x, y, 1, 1, 2.1, 1.1, 6), false);
+    }
+
 
 }

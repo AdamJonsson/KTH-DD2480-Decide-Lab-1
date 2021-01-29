@@ -57,7 +57,7 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition14() {
+    public static boolean condition14(double[] x, double[] y, int ePts, int fPts, double area1, double area2, int numPoints) {
         return false;
     }
 }
