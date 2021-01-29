@@ -18,7 +18,7 @@ public class LaunchInterceptorConditionsTest {
         double y2 = 1;
         double x3 = 2;
         double y3 = 2;
-        double a = 3
+        double a = 3;
         boolean result = LaunchInterceptorConditions.pointsAreGreaterThanArea(x1, y1, x2, y2, x3, y3, a);
         assertEquals(result, false);
     }
