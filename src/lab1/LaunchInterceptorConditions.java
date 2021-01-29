@@ -82,9 +82,9 @@ public class LaunchInterceptorConditions {
         if ((x1 == x2 && y1 == y2) || (x3 == x2 && y3 == y2))
             return false;
 
-        double distanceBToA = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-        double distanceBToC = Math.sqrt(Math.pow((x2 - x3), 2) + Math.pow((y2 - y3), 2));
-        double distanceAToC = Math.sqrt(Math.pow((x1 - x3), 2) + Math.pow((y1 - y3), 2));
+        double distanceBToA = Math.hypot(x2 - x1, y2 - y1);
+        double distanceBToC = Math.hypot(x2 - x3, y2 - y3);
+        double distanceAToC = Math.hypot(x1 - x3, y1 - y3);
         double angleInRadians = Math.acos((Math.pow(distanceBToA, 2) + Math.pow(distanceBToC, 2) - Math.pow(distanceAToC, 2))
                 / (2 * distanceBToA * distanceBToC));
         return angleInRadians < (Math.PI - epsilon) || angleInRadians > (Math.PI + epsilon);
