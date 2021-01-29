@@ -21,9 +21,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_1() {
-        int[] xList = new int[]{0, 1};
-        int[] yList = new int[]{0, 1};
-        int length1 = 2;
+        double[] xList = new double[]{0, 1};
+        double[] yList = new double[]{0, 1};
+        double length1 = 2;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, true);
     }
@@ -34,9 +34,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_2() {
-        int[] xList = new int[]{-1, 0};
-        int[] yList = new int[]{4, -1};
-        int length1 = 12;
+        double[] xList = new double[]{-1, 0};
+        double[] yList = new double[]{4, -1};
+        double length1 = 12;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, true);
     }
@@ -47,9 +47,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_3() {
-        int[] xList = new int[]{};
-        int[] yList = new int[]{};
-        int length1 = 0;
+        double[] xList = new double[]{};
+        double[] yList = new double[]{};
+        double length1 = 0;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, false);
     }
@@ -60,9 +60,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_4() {
-        int[] xList = new int[]{};
-        int[] yList = new int[]{};
-        int length1 = 20;
+        double[] xList = new double[]{};
+        double[] yList = new double[]{};
+        double length1 = 20;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, false);
     }
@@ -73,9 +73,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_5() {
-        int[] xList = new int[]{3, 4, 5};
-        int[] yList = new int[]{3, 4, 5};
-        int length1 = 1;
+        double[] xList = new double[]{3, 4, 5};
+        double[] yList = new double[]{3, 4, 5};
+        double length1 = 1;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, false);
     }
@@ -86,9 +86,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_6() {
-        int[] xList = new int[]{37545, 954326, 68643, 68887, 1, 0, 765};
-        int[] yList = new int[]{656, 65, 1, 345, 678, -7};
-        int length1 = 1;
+        double[] xList = new double[]{37545, 954326, 68643, 68887, 1, 0, 765};
+        double[] yList = new double[]{656, 65, 1, 345, 678, -7};
+        double length1 = 1;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, false);
     }
@@ -99,9 +99,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co0_7() {
-        int[] xList = new int[]{1};
-        int[] yList = new int[]{1};
-        int length1 = 1;
+        double[] xList = new double[]{1};
+        double[] yList = new double[]{1};
+        double length1 = 1;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, false);
     }
@@ -114,9 +114,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_1() {
-        int[] xList = new int[]{0, 1, 2};
-        int[] yList = new int[]{0, 1, 2};
-        int radius1 = 5;
+        double[] xList = new double[]{0, 1, 2};
+        double[] yList = new double[]{0, 1, 2};
+        double radius1 = 5;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, true);
     }
@@ -127,9 +127,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_2() {
-        int[] xList = new int[]{-1, 0, -1};
-        int[] yList = new int[]{4, -1, -1};
-        int radius1 = 12;
+        double[] xList = new double[]{-1, 0, -1};
+        double[] yList = new double[]{4, -1, -1};
+        double radius1 = 12;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, true);
     }
@@ -140,9 +140,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_3() {
-        int[] xList = new int[]{};
-        int[] yList = new int[]{};
-        int radius1 = 0;
+        double[] xList = new double[]{};
+        double[] yList = new double[]{};
+        double radius1 = 0;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
@@ -153,9 +153,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_4() {
-        int[] xList = new int[]{};
-        int[] yList = new int[]{};
-        int radius1 = 20;
+        double[] xList = new double[]{};
+        double[] yList = new double[]{};
+        double radius1 = 20;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
@@ -166,9 +166,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_5() {
-        int[] xList = new int[]{3, 4, 5};
-        int[] yList = new int[]{3, 4, 5};
-        int radius1 = 1;
+        double[] xList = new double[]{3, 4, 5};
+        double[] yList = new double[]{3, 4, 5};
+        double radius1 = 1;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
@@ -179,9 +179,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_6() {
-        int[] xList = new int[]{37545, 954326, 68643, 68887, 1, 0, 765};
-        int[] yList = new int[]{656, 65, 1, 345, 678, -7};
-        int radius1 = 1;
+        double[] xList = new double[]{37545, 954326, 68643, 68887, 1, 0, 765};
+        double[] yList = new double[]{656, 65, 1, 345, 678, -7};
+        double radius1 = 1;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
@@ -192,9 +192,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_7() {
-        int[] xList = new int[]{1};
-        int[] yList = new int[]{1};
-        int radius1 = 20;
+        double[] xList = new double[]{1};
+        double[] yList = new double[]{1};
+        double radius1 = 20;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
@@ -206,9 +206,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_7() {
-        int[] xList = new int[]{1, 2};
-        int[] yList = new int[]{1, 2};
-        int radius1 = 20;
+        double[] xList = new double[]{1, 2};
+        double[] yList = new double[]{1, 2};
+        double radius1 = 20;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
@@ -219,9 +219,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co1_8() {
-        int[] xList = new int[]{1, 2, 10000, 3};
-        int[] yList = new int[]{1, 2, 10000, 3};
-        int radius1 = 20;
+        double[] xList = new double[]{1, 2, 10000, 3};
+        double[] yList = new double[]{1, 2, 10000, 3};
+        double radius1 = 20;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, radius1);
         assertEquals(result, false);
     }
@@ -234,9 +234,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co2_1() {
-        int[] xList = new int[]{0, 1, 2};
-        int[] yList = new int[]{0, 0, 0};
-        int epsilon = 1;
+        double[] xList = new double[]{0, 1, 2};
+        double[] yList = new double[]{0, 0, 0};
+        double epsilon = 1;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, length1);
         assertEquals(result, false);
     }
@@ -247,9 +247,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co2_2() {
-        int[] xList = new int[]{};
-        int[] yList = new int[]{};
-        int epsilon = 3;
+        double[] xList = new double[]{};
+        double[] yList = new double[]{};
+        double epsilon = 3;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
         assertEquals(result, false);
     }
@@ -260,9 +260,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co2_3() {
-        int[] xList = new int[]{3, 4, 5};
-        int[] yList = new int[]{3, 4, 5};
-        int epsilon = 0;
+        double[] xList = new double[]{3, 4, 5};
+        double[] yList = new double[]{3, 4, 5};
+        double epsilon = 0;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
         assertEquals(result, true);
     }
@@ -273,9 +273,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co2_4() {
-        int[] xList = new int[]{3};
-        int[] yList = new int[]{3};
-        int epsilon = 3;
+        double[] xList = new double[]{3};
+        double[] yList = new double[]{3};
+        double epsilon = 3;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
         assertEquals(result, false);
     }
@@ -286,9 +286,9 @@ public class LaunchInterceptorConditionsTest {
      */
     @Test
     void co2_5() {
-        int[] xList = new int[]{3, 4};
-        int[] yList = new int[]{3, 4};
-        int epsilon = 3;
+        double[] xList = new double[]{3, 4};
+        double[] yList = new double[]{3, 4};
+        double epsilon = 3;
         boolean result = LaunchInterceptorConditions.condition0(xList, yList, epsilon);
         assertEquals(result, false);
     }
