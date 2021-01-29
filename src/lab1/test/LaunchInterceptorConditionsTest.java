@@ -22,4 +22,19 @@ public class LaunchInterceptorConditionsTest {
         boolean result = LaunchInterceptorConditions.triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, a);
         assertEquals(result, false);
     }
+
+    /**
+     * Check if a basic triangle pass the test
+     */
+    @Test
+    void checkIfTriangleHasArea() {
+        double x1 = 0;
+        double y1 = 0;
+        double x2 = 1;
+        double y2 = 0;
+        double x3 = 0;
+        double y3 = 1;
+        assertEquals(LaunchInterceptorConditions.triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, 0.55), false);
+        assertEquals(LaunchInterceptorConditions.triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, 0.45), true);
+    }
 }
