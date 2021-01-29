@@ -1,5 +1,6 @@
 package lab1.test;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import lab1.*;
 
@@ -87,6 +88,87 @@ public class LaunchInterceptorConditionsTest {
         double[] x = new double[]{-2, 1, 2};
         double[] y = new double[]{-2, 1, -2};
         double area1 = -5;
-        assertFalse(LaunchInterceptorConditions.condition3(x, y, area1));
+        assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition3(x, y, area1));
+    }
+
+    /**
+     * Testing a sequence of points that contain Q_PTS consecutive points in more than QUADS quadrants.
+     */
+    @Test
+    void lic4_ValidInput() {
+        double[] x = new double[]{1, 1, -1, 3};
+        double[] y = new double[]{1, 3, 2, 2};
+        int quads = 1;
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{1, 1.5, -1, 3, 3};
+        y = new double[]{1, 3.2, 2, 2, -2};
+        quads = 2;
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{-1, 1, -1, 1};
+        y = new double[]{-1, 1, 1, -1};
+        quads = 3;
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+    }
+
+    /**
+     * Testing a sequence of points that do not contain Q_PTS consecutive
+     * points in more than QUADS quadrants.
+     */
+    @Test
+    void lic4_InvalidInput() {
+        double[] x = new double[]{1, 1, -1, 3};
+        double[] y = new double[]{1, 3, 2, 2};
+        int quads = 2;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{1, 1.5, -1, 3, 3};
+        y = new double[]{1, 3.2, 2, 2, -2};
+        quads = 3;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{-1, -2, -1, -4};
+        y = new double[]{-1, -1, -3, -1};
+        quads = 1;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{1, 2, -1, -4, -3, -2, 1, 4};
+        y = new double[]{1, 1, 3, 1, -2, -2, -5, -1};
+        quads = 2;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+    }
+
+    /**
+     * Testing the ambiguous cases when a point is in between two or more quadrants.
+     */
+    @Test
+    void lic4_ValidInput_AmbiguousCases() {
+        double[] x = new double[]{0, 2, 1};
+        double[] y = new double[]{0, 1, 3};
+        int quads = 1;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{0, -2.2, 1};
+        y = new double[]{0, 1, -3};
+        quads = 3;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        quads = 2;
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{-3, -2.2, -1};
+        y = new double[]{0, 1, 2};
+        quads = 1;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        x = new double[]{0, -2, -1};
+        y = new double[]{-3, -1, -2};
+        quads = 1;
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+    }
+
+    /**
+     * Testing an invalid input when QUADS is less than 1 or more than 3.
+     */
+    @Test
+    void lic4_InvalidInput_InvalidQuads() {
+        double[] x = new double[]{0, 2, 1};
+        double[] y = new double[]{0, 1, 3};
+        int quads1 = 0;
+        assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition4(x, y, quads1));
+        int quads2 = 4;
+        assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition4(x, y, quads2));
     }
 }

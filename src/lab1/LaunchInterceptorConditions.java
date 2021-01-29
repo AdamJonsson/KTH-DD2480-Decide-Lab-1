@@ -17,7 +17,7 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition4() {
+    public static boolean condition4(double[] x, double[] y, int quads) {
         return false;
     }
 
