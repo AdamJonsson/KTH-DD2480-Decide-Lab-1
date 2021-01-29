@@ -75,7 +75,7 @@ public class LaunchInterceptorConditionsTest {
         // Points on the unit circles, including a point in the origin.
         double[] x = new double[] { 0, 1, -1, 0};
         double[] y = new double[] { 0, 0, 0, -1};
-        assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1.1, 1, 5), false);
+        assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1.1, 1, 4), false);
     }
 
     /** Condition13: Test tha the condition behaves as suspected when points are located on the unit circle */
@@ -85,7 +85,7 @@ public class LaunchInterceptorConditionsTest {
         double[] x = new double[] { 0, 1, -1, 0, 0};
         double[] y = new double[] { 0, 0, 0, -1, 1};
 
-        // Using A_PTS = B_PTS = 0, should only make it possible to create a unit circle as the smallest circle to contain three data points.
+        // Using A_PTS = B_PTS = 0, should only make it possible to create a unit circle as the smallest circle to contain all three data points.
         assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1.1, 1, 5), true);
         assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1.1, 0.9, 5), false);
         assertEquals(LaunchInterceptorConditions.condition13(x, y, 0, 0, 1, 1, 5), false);
