@@ -6,10 +6,20 @@ import lab1.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LaunchInterceptorConditionsTest {
-    // Dummy test
+
+    /**
+     * Check if triangle area of the points are on a single line
+     */
     @Test
-    void co1() {
-        LaunchInterceptorConditions.condition0(new int[2], 20);
-        assertEquals(true, true);
+    void checkIfTriangleAreaIsZero() {
+        double x1 = 0;
+        double y1 = 0;
+        double x2 = 1;
+        double y2 = 2;
+        double x3 = 3;
+        double y3 = 3;
+        double a = 3
+        boolean result = LaunchInterceptorConditions.pointsAreGreaterThanArea(x1, y1, x2, y2, x3, y3, a);
+        assertEquals(result, true);
     }
 }
