@@ -5,11 +5,15 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
+    public static boolean helperDistance(double x1, double y1, double x2, double y2, double length1) {
+        return false;
+    }
+
     public static boolean condition1() {
         return false;
     }
 
-    public static boolean helperDistance(double x1, double y1, double x2, double y2, double length1) {
+    public static boolean helperCircle(double x1, double y1, double x2, double y2, double x3, double y3) {
         return false;
     }
 
