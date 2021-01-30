@@ -172,4 +172,55 @@ public class LaunchInterceptorConditionsTest {
         boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
         assertEquals(result, true);
     }
+
+    /**
+     * Should return false when numPoints < 5
+     *
+     * @result false
+     */
+    @Test
+    void co8_1() {
+        double[] xList = new double[]{0, 0, 0, 0};
+        double[] yList = new double[]{0, 0, 0, 0};
+        int aPts = 1;
+        int bPts = 1;
+        double radius = 1;
+        int numPoints = 4;
+        boolean result = LaunchInterceptorConditions.condition8(xList, yList, aPts, bPts, radius, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Should return false since the first and fifth point would be on a circle with center in third point
+     *
+     * @result false
+     */
+    @Test
+    void co8_2() {
+        double[] xList = new double[]{1, 2, 3, 4, 5};
+        double[] yList = new double[]{0, 0, 0, 0, 0};
+        int aPts = 1;
+        int bPts = 1;
+        double radius = 2;
+        int numPoints = 5;
+        boolean result = LaunchInterceptorConditions.condition8(xList, yList, aPts, bPts, radius, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Should return true due to the small radius
+     *
+     * @result true
+     */
+    @Test
+    void co8_3() {
+        double[] xList = new double[]{1, 2, 3, 4, 5, 6, 7};
+        double[] yList = new double[]{0, 0, 0, 0, 0, 0, 0};
+        int aPts = 1;
+        int bPts = 2;
+        double radius = 1;
+        int numPoints = 7;
+        boolean result = LaunchInterceptorConditions.condition8(xList, yList, aPts, bPts, radius, numPoints);
+        assertEquals(result, true);
+    }
 }
