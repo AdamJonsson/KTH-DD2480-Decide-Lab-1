@@ -99,15 +99,15 @@ public class LaunchInterceptorConditionsTest {
         double[] x = new double[]{1, 1, -1, 3};
         double[] y = new double[]{1, 3, 2, 2};
         int quads = 1;
-        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{1, 1.5, -1, 3, 3};
         y = new double[]{1, 3.2, 2, 2, -2};
         quads = 2;
-        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{-1, 1, -1, 1};
         y = new double[]{-1, 1, 1, -1};
         quads = 3;
-        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
     }
 
     /**
@@ -119,19 +119,19 @@ public class LaunchInterceptorConditionsTest {
         double[] x = new double[]{1, 1, -1, 3};
         double[] y = new double[]{1, 3, 2, 2};
         int quads = 2;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{1, 1.5, -1, 3, 3};
         y = new double[]{1, 3.2, 2, 2, -2};
         quads = 3;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{-1, -2, -1, -4};
         y = new double[]{-1, -1, -3, -1};
         quads = 1;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{1, 2, -1, -4, -3, -2, 1, 4};
         y = new double[]{1, 1, 3, 1, -2, -2, -5, -1};
         quads = 2;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
     }
 
     /**
@@ -142,21 +142,21 @@ public class LaunchInterceptorConditionsTest {
         double[] x = new double[]{0, 2, 1};
         double[] y = new double[]{0, 1, 3};
         int quads = 1;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{0, -2.2, 1};
         y = new double[]{0, 1, -3};
         quads = 3;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         quads = 2;
-        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertTrue(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{-3, -2.2, -1};
         y = new double[]{0, 1, 2};
         quads = 1;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
         x = new double[]{0, -2, -1};
         y = new double[]{-3, -1, -2};
         quads = 1;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
     }
 
     /**
@@ -167,9 +167,9 @@ public class LaunchInterceptorConditionsTest {
         double[] x = new double[]{0, 2, 1};
         double[] y = new double[]{0, 1, 3};
         int quads1 = 0;
-        assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition4(x, y, quads1));
+        assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition4(x, y, quads1, x.length));
         int quads2 = 4;
-        assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition4(x, y, quads2));
+        assertThrows(IllegalArgumentException.class, () -> LaunchInterceptorConditions.condition4(x, y, quads2, x.length));
     }
 
     /**
