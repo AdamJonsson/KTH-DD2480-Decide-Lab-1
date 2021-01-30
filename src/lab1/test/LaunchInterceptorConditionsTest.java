@@ -83,4 +83,30 @@ public class LaunchInterceptorConditionsTest {
         boolean result = LaunchInterceptorConditions.condition10(x, y, e_pts, f_pts, area1, 4);
         assertEquals(result, false);
     }
+
+    /**
+     * Should return true if there exists a set of 2 data points (x_i, y_i), (x_j, y_j)
+     * separated by exactly G_PTS consecutive intervening points
+     * such that x_j - x_i < 0, where i < j
+     */
+    @Test
+    void co11_1 {
+        double[] x = new double[] {1, 1, 0};
+        double[] y = new double[] {3, 2, 0};
+        g_pts = 1;
+        boolean result = LaunchInterceptorConditions.condition11(x, y, g_pts, 3);
+        assertEquals(result, true);
+    }
+
+    /**
+     * Should return false if NUMPOINTS < 3
+     */
+    @Test
+    void co11_2 {
+        double[] x = new double[] {0, 0};
+        double[] y = new double[] {0, 0};
+        g_pts = 0;
+        boolean result = LaunchInterceptorConditions.condition11(x, y, g_pts, 2);
+        assertEquals(result, false);
+    }
 }
