@@ -99,7 +99,7 @@ public class LaunchInterceptorConditionsTest {
      * @result false
      */
     @Test
-    void co6_4() {
+    void co6_5() {
         double[] xList = new double[]{1, 1, 1, 1};
         double[] yList = new double[]{1, 3, 2, 1};
         int nPts = 4;
@@ -107,5 +107,69 @@ public class LaunchInterceptorConditionsTest {
         int numPoints = 4;
         boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
         assertEquals(result, false);
+    }
+
+    /**
+     * Should return false when numPoints < 3
+     *
+     * @result false
+     */
+    @Test
+    void co7_1() {
+        double[] xList = new double[]{1, 1};
+        double[] yList = new double[]{1, 3};
+        int kPts = 4;
+        double length1 = 1;
+        int numPoints = 2;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Should return false since first and third point aren't distance >2 from each other
+     *
+     * @result false
+     */
+    @Test
+    void co7_2() {
+        double[] xList = new double[]{1, 2, 3};
+        double[] yList = new double[]{1, 1, 1};
+        int kPts = 1;
+        double length1 = 2;
+        int numPoints = 3;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Should return true since first and third point are distance >2 from each other
+     *
+     * @result true
+     */
+    @Test
+    void co7_3() {
+        double[] xList = new double[]{1, 2, 4};
+        double[] yList = new double[]{1, 1, 1};
+        int kPts = 1;
+        double length1 = 2;
+        int numPoints = 3;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, true);
+    }
+
+    /**
+     * Should return true since second and fifth point are distance >4 from each other
+     *
+     * @result true
+     */
+    @Test
+    void co7_4() {
+        double[] xList = new double[]{1, 2, 3, 4, 7};
+        double[] yList = new double[]{1, 1, 1, 1, 1};
+        int kPts = 2;
+        double length1 = 4;
+        int numPoints = 5;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, true);
     }
 }
