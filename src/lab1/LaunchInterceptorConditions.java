@@ -18,10 +18,6 @@ public class LaunchInterceptorConditions {
         return (Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2))) * 0.5 > a;
     }
 
-    public static boolean condition0() {
-        return false;
-    }
-
     /**
      * Checks if the distance between two points is greater than LENGTH1.
      *
@@ -36,10 +32,6 @@ public class LaunchInterceptorConditions {
         if (length1 < 0) throw new IllegalArgumentException("LENGTH1 cannot be a negative value");
         double distance = Math.hypot(x2 - x1, y2 - y1);
         return distance > length1;
-    }
-
-    public static boolean condition1() {
-        return false;
     }
 
     /**
@@ -62,6 +54,31 @@ public class LaunchInterceptorConditions {
         double angle1 = Math.acos((a * a + c * c - b * b) / (2 * a * c));
         double angleCenter = Math.acos((2 * r * r - b * b) / (2 * r * r));
         return angle1 * 2 >= angleCenter;
+    }
+
+    /**
+     * There exists at least one set of two consecutive data points that are a distance greater than
+     * the length, LENGTH1, apart.
+     *
+     * @param xList
+     * @param yList
+     * @param lenght1
+     * @return
+     */
+    public static boolean condition0(double[] xList, double[] yList, double lenght1) {
+        if (xList.length != yList.length)
+            return false;
+
+        for (int i = 0; i < xList.length-1; i++) {
+            boolean result = helperDistance(xList[i], yList[i], xList[i+1], yList[i+1], lenght1);
+            if (result)
+                return true;
+        }
+        return false;
+    }
+
+    public static boolean condition1() {
+        return false;
     }
 
     public static boolean condition2() {
