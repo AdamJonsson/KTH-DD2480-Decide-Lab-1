@@ -90,7 +90,23 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition2() {
+    /**
+     * There exists at least one set of three consecutive data points which form an angle such that:
+     * angle < (PI−EPSILON)
+     * or
+     * angle > (PI+EPSILON)
+     * The second of the three consecutive points is always the vertex of the angle. If either the first
+     * point or the last point (or both) coincides with the vertex, the angle is undefined and the LIC
+     * is not satisfied by those three points.
+     *
+     * @return
+     */
+    public static boolean condition2(double[] xList, double[] yList, double epsilon) {
+        for (int i = 0; i < xList.length-2; i++) {
+            boolean result = angleBetweenPointsOutsideEpsilon(xList[i], yList[i], xList[i+1], yList[i+1], xList[i+2], yList[i+2], epsilon);
+            if (result)
+                return true;
+        }
         return false;
     }
 
