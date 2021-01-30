@@ -95,8 +95,60 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
+    /**
+     * Returns true if there exists at least one set of Q PTS consecutive data points that lie in more than QUADS quadrants
+     * 
+     * @param x
+     * @param y
+     * @param quads
+     * @param qPts
+     * @return True of false
+     */
     public static boolean condition4(double[] x, double[] y, int quads, int qPts) {
+        
+        if (qPts < 2 || qPts > x.length)
+            return false;
+        
+        if (quads > 3 || quads < 1)
+            throw new IllegalArgumentException("quads must be between the value 1 and 3 inclusive");
+        
+        for (int i = 0; i <= x.length - qPts; i++) {
+            boolean[] pointsExistInQuadrant = new boolean[] {false, false, false, false};
+            for (int qPtsIndex = 0; qPtsIndex < qPts; qPtsIndex++) {
+                double xPos = x[qPtsIndex + i];
+                double yPos = y[qPtsIndex + i];
 
+                // Check if point is in quadrant 1
+                if (xPos >= 0 && yPos >= 0) {
+                    pointsExistInQuadrant[0] = true;
+                }
+
+                // Check if point is in quadrant 2
+                else if (xPos < 0 && yPos >= 0) {
+                    pointsExistInQuadrant[1] = true;
+                }
+                
+                // Check if point is in quadrant 3
+                else if (xPos < 0 && yPos < 0) {
+                    pointsExistInQuadrant[2] = true;
+                }
+
+                // Check if point is in quadrant 4
+                else if (xPos > 0 && yPos < 0) {
+                    pointsExistInQuadrant[3] = true;
+                }
+            }
+
+            int numConsecutivePointsInDifferentQuadrants = 0;
+            for (boolean inQuadrant : pointsExistInQuadrant) {
+                if (inQuadrant) {
+                    numConsecutivePointsInDifferentQuadrants++;
+                }
+            }
+
+            if (numConsecutivePointsInDifferentQuadrants > quads)
+                return true;
+        }
         return false;
     }
 

@@ -131,7 +131,7 @@ public class LaunchInterceptorConditionsTest {
         x = new double[]{1, 2, -1, -4, -3, -2, 1, 4};
         y = new double[]{1, 1, 3, 1, -2, -2, -5, -1};
         quads = 2;
-        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, x.length));
+        assertFalse(LaunchInterceptorConditions.condition4(x, y, quads, 2));
     }
 
     /**
