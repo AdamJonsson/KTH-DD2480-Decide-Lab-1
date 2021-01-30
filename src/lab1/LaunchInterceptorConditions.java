@@ -5,8 +5,19 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
+    /**
+     * Checks if the distance between two points is greater than LENGTH1.
+     * @param x1 the x coordinate of the first point.
+     * @param y1 the y coordinate of the first point.
+     * @param x2 the x coordinate of the second point.
+     * @param y2 the y coordinate of the second point.
+     * @param length1
+     * @return true if the distance is greater than LENGTH1.
+     */
     public static boolean helperDistance(double x1, double y1, double x2, double y2, double length1) {
-        return false;
+        if (length1< 0) throw new IllegalArgumentException("LENGTH1 cannot be a negative value");
+        double distance = Math.hypot(x2 - x1, y2 - y1);
+        return distance > length1;
     }
 
     public static boolean condition1() {
