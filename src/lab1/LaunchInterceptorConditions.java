@@ -85,7 +85,7 @@ public class LaunchInterceptorConditions {
             return false;
 
         if (area1 < 0)
-            throw new IllegalArgumentException("Area an not be negative");
+            throw new IllegalArgumentException("Area can not be negative");
         
         for (int i = 0; i < y.length - 2; i++) {
             boolean conditionMet = triangleAreaIsGreaterThanArea(x[i], y[i], x[i + 1], y[i + 1], x[i + 2], y[i + 2], area1);
@@ -96,6 +96,7 @@ public class LaunchInterceptorConditions {
     }
 
     public static boolean condition4(double[] x, double[] y, int quads) {
+
         return false;
     }
 
