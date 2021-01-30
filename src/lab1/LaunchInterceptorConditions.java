@@ -68,7 +68,30 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
+    /**
+     * There exists at least one set of three consecutive data points that are the vertices of a triangle 
+     * with area greater than AREA1.
+     * 
+     * @param x
+     * @param y
+     * @param area1
+     * @return
+     */
     public static boolean condition3(double[] x, double[] y, double area1) {
+        if (x.length != y.length)
+            return false;
+
+        if (x.length < 3)
+            return false;
+
+        if (area1 < 0)
+            throw new IllegalArgumentException("Area an not be negative");
+        
+        for (int i = 0; i < y.length - 2; i++) {
+            boolean conditionMet = triangleAreaIsGreaterThanArea(x[i], y[i], x[i + 1], y[i + 1], x[i + 2], y[i + 2], area1);
+            if (conditionMet)
+                return true;
+        }
         return false;
     }
 
