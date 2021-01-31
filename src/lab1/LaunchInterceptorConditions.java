@@ -1,5 +1,7 @@
 package lab1;
 
+import java.awt.*;
+
 public class LaunchInterceptorConditions {
     public static boolean condition0(int[] listPoints, int len) {
         return false;
@@ -37,10 +39,26 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition9() {
-        return false;
-    }
+    /**
+     *
+     * @author Tony Le
+     * @return
+     */
+    public static boolean condition9(int[] x, int[] y, int c_pts, int d_pts, int epsilon, int numPoints) {
+        if (numPoints < 5) return false;
 
+        Point a = new Point(x[0],y[0]);
+        Point vertex = new Point(x[0 + c_pts],y[0 + c_pts]);
+        Point b = new Point(x[numPoints-1],y[numPoints-1]);
+
+        if (a.getX() == vertex.getX() && a.getY() == vertex.getY()) {
+            return false;
+        } else if (b.getX() == vertex.getX() && b.getY() == vertex.getY()) {
+            return false;
+        }
+
+        return true;
+    }
     public static boolean condition10() {
         return false;
     }

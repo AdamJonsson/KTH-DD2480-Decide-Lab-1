@@ -17,7 +17,7 @@ public class LaunchInterceptorConditionsTest {
      * Should return false if the first point coincides with the vertex
      */
     @Test
-    void co9_1 {
+    void co9_1() {
         double[] x = new double[] {1, 2, 3, 1, 4, 5, 2};
         double[] y = new double[] {0, 0, 0, 0, 0, 0, 0};
         int c_pts = 2;
@@ -31,7 +31,7 @@ public class LaunchInterceptorConditionsTest {
      * Should return false if the last point coincides with the vertex
      */
     @Test
-    void co9_2 {
+    void co9_2() {
         double[] x = new double[] {1, 2, 3, 2, 4, 5, 2};
         double[] y = new double[] {0, 0, 0, 0, 0, 0, 0};
         int c_pts = 2;
@@ -45,7 +45,7 @@ public class LaunchInterceptorConditionsTest {
      * Should return false if NUMPOINTS < 5
      */
     @Test
-    void co9_3 {
+    void co9_3() {
         double[] x = new double[] {0, 0, 0, 0};
         double[] y = new double[] {0, 0, 0, 0};
         int c_pts = 1;
@@ -60,7 +60,7 @@ public class LaunchInterceptorConditionsTest {
      * consecutive intervening points form a triangle with area greater than AREA1
      */
     @Test
-    void co10_1 {
+    void co10_1() {
         double[] x = new double[] {0, 2, 3, 2, 4, 5, 4};
         double[] y = new double[] {0, 2, 3, 5, 4, 5, 0};
         int e_pts = 2;
@@ -74,7 +74,7 @@ public class LaunchInterceptorConditionsTest {
      * Should return false if NUMPOINTS < 5
      */
     @Test
-    void co10_2 {
+    void co10_2() {
         double[] x = new double[] {0, 0, 0, 0};
         double[] y = new double[] {0, 0, 0, 0};
         int e_pts = 0;
@@ -90,7 +90,7 @@ public class LaunchInterceptorConditionsTest {
      * such that x_j - x_i < 0, where i < j
      */
     @Test
-    void co11_1 {
+    void co11_1() {
         double[] x = new double[] {1, 1, 0};
         double[] y = new double[] {3, 2, 0};
         int g_pts = 1;
@@ -102,7 +102,7 @@ public class LaunchInterceptorConditionsTest {
      * Should return false if NUMPOINTS < 3
      */
     @Test
-    void co11_2 {
+    void co11_2() {
         double[] x = new double[] {0, 0};
         double[] y = new double[] {0, 0};
         int g_pts = 0;
