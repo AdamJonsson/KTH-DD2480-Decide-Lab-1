@@ -254,7 +254,25 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
+    /**
+     * There exists at least one set of two data points separated by exactly kPTS consecutive
+     * intervening points that are a distance greater than the length, LENGTH1, apart.
+     * The condition is not met when NUMPOINTS < 3.
+     *
+     * @param xList     the x-coordinates of the data points
+     * @param yList     the y-coordinates of the data points
+     * @param kPts
+     * @param length1
+     * @param numPoints the number of data points.
+     * @return
+     */
     public static boolean condition7(double[] xList, double[] yList, int kPts, double length1, int numPoints) {
+        if (length1 < 0)
+            throw new IllegalArgumentException("length1 cannot be a negative number.");
+        if (numPoints < 3) return false;
+        for (int i = 0; i <= numPoints - kPts - 2; i++) {
+            if (helperDistance(xList[i], yList[i], xList[i + kPts + 1], yList[i + kPts + 1], length1)) return true;
+        }
         return false;
     }
 
