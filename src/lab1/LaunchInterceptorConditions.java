@@ -59,14 +59,13 @@ public class LaunchInterceptorConditions {
     /**
      * There exists at least one set of two consecutive data points that are a distance greater than
      * the length, LENGTH1, apart.
-     *
      */
     public static boolean condition0(double[] xList, double[] yList, double lenght1) {
         if (xList.length != yList.length || lenght1 < 0)
             return false;
 
-        for (int i = 0; i < xList.length-1; i++) {
-            boolean result = helperDistance(xList[i], yList[i], xList[i+1], yList[i+1], lenght1);
+        for (int i = 0; i < xList.length - 1; i++) {
+            boolean result = helperDistance(xList[i], yList[i], xList[i + 1], yList[i + 1], lenght1);
             if (result)
                 return true;
         }
@@ -76,14 +75,13 @@ public class LaunchInterceptorConditions {
     /**
      * There exists at least one set of three consecutive data points that cannot all be contained
      * within or on a circle of radius RADIUS1.
-     *
      */
     public static boolean condition1(double[] xList, double[] yList, double radius1) {
         if (xList.length != yList.length || radius1 < 0)
             return false;
 
-        for (int i = 0; i < xList.length-2; i++) {
-            boolean result = helperCircle(xList[i], yList[i], xList[i+1], yList[i+1], xList[i+2], yList[i+2], radius1);
+        for (int i = 0; i < xList.length - 2; i++) {
+            boolean result = helperCircle(xList[i], yList[i], xList[i + 1], yList[i + 1], xList[i + 2], yList[i + 2], radius1);
             if (result)
                 return true;
         }
@@ -102,8 +100,8 @@ public class LaunchInterceptorConditions {
      * @return
      */
     public static boolean condition2(double[] xList, double[] yList, double epsilon) {
-        for (int i = 0; i < xList.length-2; i++) {
-            boolean result = angleBetweenPointsOutsideEpsilon(xList[i], yList[i], xList[i+1], yList[i+1], xList[i+2], yList[i+2], epsilon);
+        for (int i = 0; i < xList.length - 2; i++) {
+            boolean result = angleBetweenPointsOutsideEpsilon(xList[i], yList[i], xList[i + 1], yList[i + 1], xList[i + 2], yList[i + 2], epsilon);
             if (result)
                 return true;
         }
@@ -111,9 +109,9 @@ public class LaunchInterceptorConditions {
     }
 
     /**
-     * There exists at least one set of three consecutive data points that are the vertices of a triangle 
+     * There exists at least one set of three consecutive data points that are the vertices of a triangle
      * with area greater than AREA1.
-     * 
+     *
      * @param x
      * @param y
      * @param area1
@@ -128,7 +126,7 @@ public class LaunchInterceptorConditions {
 
         if (area1 < 0)
             throw new IllegalArgumentException("Area can not be negative");
-        
+
         for (int i = 0; i < y.length - 2; i++) {
             boolean conditionMet = triangleAreaIsGreaterThanArea(x[i], y[i], x[i + 1], y[i + 1], x[i + 2], y[i + 2], area1);
             if (conditionMet)
@@ -139,7 +137,7 @@ public class LaunchInterceptorConditions {
 
     /**
      * Returns true if there exists at least one set of Q PTS consecutive data points that lie in more than QUADS quadrants
-     * 
+     *
      * @param x
      * @param y
      * @param quads
@@ -147,15 +145,15 @@ public class LaunchInterceptorConditions {
      * @return True of false
      */
     public static boolean condition4(double[] x, double[] y, int quads, int qPts) {
-        
+
         if (qPts < 2 || qPts > x.length)
             return false;
-        
+
         if (quads > 3 || quads < 1)
             throw new IllegalArgumentException("quads must be between the value 1 and 3 inclusive");
-        
+
         for (int i = 0; i <= x.length - qPts; i++) {
-            boolean[] pointsExistInQuadrant = new boolean[] {false, false, false, false};
+            boolean[] pointsExistInQuadrant = new boolean[]{false, false, false, false};
             for (int qPtsIndex = 0; qPtsIndex < qPts; qPtsIndex++) {
                 double xPos = x[qPtsIndex + i];
                 double yPos = y[qPtsIndex + i];
@@ -169,7 +167,7 @@ public class LaunchInterceptorConditions {
                 else if (xPos < 0 && yPos >= 0) {
                     pointsExistInQuadrant[1] = true;
                 }
-                
+
                 // Check if point is in quadrant 3
                 else if (xPos < 0 && yPos < 0) {
                     pointsExistInQuadrant[2] = true;
@@ -197,7 +195,7 @@ public class LaunchInterceptorConditions {
     /**
      * There exists at least one set of two consecutive data points, (X[i],Y[i]) and (X[j],Y[j]), such
      * that X[j] - X[i] < 0. (where i = j-1)
-     * 
+     *
      * @param x
      * @param y
      * @return True if the condition is met, otherwise false
@@ -210,19 +208,57 @@ public class LaunchInterceptorConditions {
             if (x[i + 1] - x[i] < 0)
                 return true;
         }
-        
+
         return false;
     }
 
-    public static boolean condition6() {
+    /**
+     * There exists at least one set of nPTS consecutive data points such that at least one of the points lies
+     * a distance greater than DIST from the line joining the first and last of these nPTS points.
+     * If the first and last points of these nPTS are identical, then the calculated distance to compare with DIST
+     * will be the distance from the coincident point to all other points of the nPTS consecutive points.
+     * The condition is not met when NUMPOINTS < 3.
+     *
+     * @param x         the x-coordinates of the data points
+     * @param y         the y-coordinates of the data points
+     * @param nPts
+     * @param dist
+     * @param numPoints the number of data points.
+     * @return true if such a point exist, otherwise false.
+     */
+    public static boolean condition6(double[] x, double[] y, int nPts, double dist, int numPoints) {
+        if (numPoints < 3) return false;
+        if (nPts > numPoints || nPts < 3) {
+            throw new IllegalArgumentException("nPts must be in the the interval [3, NUMPOIUNTS]");
+        }
+
+        outerLoop:
+        for (int i = 0; i <= numPoints - nPts; i++) {
+            if (x[i + nPts - 1] == x[i] && y[i + nPts - 1] == y[i]) {
+                for (int j = 1; j < nPts - 1; j++) {
+                    if (!helperDistance(x[i], y[i], x[i + j], y[i + j], dist)) continue outerLoop;
+                }
+                return true;
+            } else {
+                for (int j = 1; j < nPts - 1; j++) {
+                    double a = Math.hypot(x[i + nPts - 1] - x[i], y[i + nPts - 1] - y[i]);
+                    double b = Math.hypot(x[i + j] - x[i], y[i + j] - y[i]);
+                    double c = Math.hypot(x[i + nPts - 1] - x[i + j], y[i + nPts - 1] - y[i + j]);
+                    double angle = Math.acos((a * a + b * b - c * c) / (2 * a * b));
+                    double pointDist = Math.sin(angle) * b;
+                    if (pointDist > dist) return true;
+                }
+            }
+        }
+
         return false;
     }
 
-    public static boolean condition7() {
+    public static boolean condition7(double[] xList, double[] yList, int kPts, double length1, int numPoints) {
         return false;
     }
 
-    public static boolean condition8() {
+    public static boolean condition8(double[] xList, double[] yList, int aPts, int bPts, double radius, int numPoints) {
         return false;
     }
 
@@ -254,7 +290,7 @@ public class LaunchInterceptorConditions {
      * Returns true if the following conditions are true: angle < (PI - epsilon)
      * or angle > (PI + epsilon). The second point of the three points is always the
      * vertex of the angle.
-     * 
+     *
      * @param x1      x position of first point
      * @param y1      y position of first point
      * @param x2      x position of second point
@@ -265,7 +301,7 @@ public class LaunchInterceptorConditions {
      * @return True or false if conditions are met
      */
     public static boolean angleBetweenPointsOutsideEpsilon(double x1, double y1, double x2, double y2, double x3,
-            double y3, double epsilon) {
+                                                           double y3, double epsilon) {
         if (epsilon >= Math.PI)
             return false;
         if ((x1 == x2 && y1 == y2) || (x3 == x2 && y3 == y2))

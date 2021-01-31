@@ -412,7 +412,7 @@ public class LaunchInterceptorConditionsTest {
      * @result false
      */
     @Test
-    void co6_1() {
+    void co6_0() {
         double[] xList = new double[]{3, 4};
         double[] yList = new double[]{0, 1};
         int nPts = 2;
