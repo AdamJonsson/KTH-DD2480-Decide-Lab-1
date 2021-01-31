@@ -40,7 +40,19 @@ public class LaunchInterceptorConditions {
     }
 
     public static boolean condition9(double[] x, double[] y, int c_pts, int d_pts, double epsilon, int numPoints) {
-        return false;
+        if (numPoints < 5) return false;
+
+        int firstIndex = 0;
+        int vertexIndex = c_pts + 1;
+        int lastIndex = numPoints - 1;
+
+        if (x[firstIndex] == x[vertexIndex] && y[firstIndex] == y[vertexIndex]) {
+            return false;
+        } else if (x[lastIndex] == x[vertexIndex] && y[lastIndex] == y[vertexIndex]) {
+            return false;
+        }
+
+        return true;
     }
     public static boolean condition10(double[] x, double[] y, int e_pts, int f_pts, double area1, int numPoints) {
         return false;

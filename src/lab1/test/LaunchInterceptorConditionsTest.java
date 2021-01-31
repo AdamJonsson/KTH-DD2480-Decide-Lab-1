@@ -42,10 +42,24 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
-     * Should return false if NUMPOINTS < 5
+     * Should return true if neither the first or the last point coincides with the vertex
      */
     @Test
     void co9_3() {
+        double[] x = new double[] {1, 2, 3, 4, 5, 6, 7};
+        double[] y = new double[] {0, 0, 0, 0, 0, 0, 0};
+        int c_pts = 2;
+        int d_pts = 2;
+        double epsilon = 1;
+        boolean result = LaunchInterceptorConditions.condition9(x, y, c_pts, d_pts, epsilon, 7);
+        assertEquals(result, true);
+    }
+
+    /**
+     * Should return false if NUMPOINTS < 5
+     */
+    @Test
+    void co9_4() {
         double[] x = new double[] {0, 0, 0, 0};
         double[] y = new double[] {0, 0, 0, 0};
         int c_pts = 1;
