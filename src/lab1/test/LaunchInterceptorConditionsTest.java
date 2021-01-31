@@ -20,9 +20,9 @@ public class LaunchInterceptorConditionsTest {
     void co9_1 {
         double[] x = new double[] {1, 2, 3, 1, 4, 5, 2};
         double[] y = new double[] {0, 0, 0, 0, 0, 0, 0};
-        c_pts = 2;
-        d_pts = 2;
-        epsilon = 1;
+        int c_pts = 2;
+        int d_pts = 2;
+        int epsilon = 1;
         boolean result = LaunchInterceptorConditions.condition9(x, y, c_pts, d_pts, epsilon, 7);
         assertEquals(result, false);
     }
@@ -34,9 +34,9 @@ public class LaunchInterceptorConditionsTest {
     void co9_2 {
         double[] x = new double[] {1, 2, 3, 2, 4, 5, 2};
         double[] y = new double[] {0, 0, 0, 0, 0, 0, 0};
-        c_pts = 2;
-        d_pts = 2;
-        epsilon = 1;
+        int c_pts = 2;
+        int d_pts = 2;
+        int epsilon = 1;
         boolean result = LaunchInterceptorConditions.condition9(x, y, c_pts, d_pts, epsilon, 7);
         assertEquals(result, false);
     }
@@ -48,9 +48,9 @@ public class LaunchInterceptorConditionsTest {
     void co9_3 {
         double[] x = new double[] {0, 0, 0, 0};
         double[] y = new double[] {0, 0, 0, 0};
-        c_pts = 1;
-        d_pts = 1;
-        epsilon = 1;
+        int c_pts = 1;
+        int d_pts = 1;
+        int epsilon = 1;
         boolean result = LaunchInterceptorConditions.condition9(x, y, c_pts, d_pts, epsilon, 4);
         assertEquals(result, false);
     }
@@ -63,9 +63,9 @@ public class LaunchInterceptorConditionsTest {
     void co10_1 {
         double[] x = new double[] {0, 2, 3, 2, 4, 5, 4};
         double[] y = new double[] {0, 2, 3, 5, 4, 5, 0};
-        e_pts = 2;
-        f_pts = 2;
-        area1 = 0;
+        int e_pts = 2;
+        int f_pts = 2;
+        int area1 = 0;
         boolean result = LaunchInterceptorConditions.condition10(x, y, e_pts, f_pts, area1, 7);
         assertEquals(result, true);
     }
@@ -77,9 +77,9 @@ public class LaunchInterceptorConditionsTest {
     void co10_2 {
         double[] x = new double[] {0, 0, 0, 0};
         double[] y = new double[] {0, 0, 0, 0};
-        e_pts = 0;
-        f_pts = 0;
-        area1 = 0;
+        int e_pts = 0;
+        int f_pts = 0;
+        int area1 = 0;
         boolean result = LaunchInterceptorConditions.condition10(x, y, e_pts, f_pts, area1, 4);
         assertEquals(result, false);
     }
@@ -93,7 +93,7 @@ public class LaunchInterceptorConditionsTest {
     void co11_1 {
         double[] x = new double[] {1, 1, 0};
         double[] y = new double[] {3, 2, 0};
-        g_pts = 1;
+        int g_pts = 1;
         boolean result = LaunchInterceptorConditions.condition11(x, y, g_pts, 3);
         assertEquals(result, true);
     }
@@ -105,7 +105,7 @@ public class LaunchInterceptorConditionsTest {
     void co11_2 {
         double[] x = new double[] {0, 0};
         double[] y = new double[] {0, 0};
-        g_pts = 0;
+        int g_pts = 0;
         boolean result = LaunchInterceptorConditions.condition11(x, y, g_pts, 2);
         assertEquals(result, false);
     }
