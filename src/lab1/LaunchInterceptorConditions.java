@@ -39,31 +39,14 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    /**
-     *
-     * @author Tony Le
-     * @return
-     */
-    public static boolean condition9(int[] x, int[] y, int c_pts, int d_pts, int epsilon, int numPoints) {
-        if (numPoints < 5) return false;
-
-        Point a = new Point(x[0],y[0]);
-        Point vertex = new Point(x[0 + c_pts],y[0 + c_pts]);
-        Point b = new Point(x[numPoints-1],y[numPoints-1]);
-
-        if (a.getX() == vertex.getX() && a.getY() == vertex.getY()) {
-            return false;
-        } else if (b.getX() == vertex.getX() && b.getY() == vertex.getY()) {
-            return false;
-        }
-
-        return true;
+    public static boolean condition9(double[] x, double[] y, int c_pts, int d_pts, double epsilon, int numPoints) {
+        return false;
     }
-    public static boolean condition10() {
+    public static boolean condition10(double[] x, double[] y, int e_pts, int f_pts, double area1, int numPoints) {
         return false;
     }
 
-    public static boolean condition11() {
+    public static boolean condition11(double[] x, double[] y, int g_pts, int numPoints) {
         return false;
     }
 
