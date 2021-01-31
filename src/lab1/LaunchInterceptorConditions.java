@@ -35,7 +35,7 @@ public class LaunchInterceptorConditions {
     }
 
     /**
-     * Checks if there exists a triangle that fits into or on a circle with radius r.
+     * Checks if there exists three points that fits into or on a circle with radius r.
      *
      * @param x1 the x coordinate of the first point.
      * @param y1 the y coordinate of the first point.
@@ -43,17 +43,23 @@ public class LaunchInterceptorConditions {
      * @param y2 the y coordinate of the second point.
      * @param x3 the x coordinate of the third point.
      * @param y3 the y coordinate of the third point.
-     * @return true there is a triangle that fits into or on a 1r circle, otherwise false.
+     * @return true there are three points that fits into or on an r circle, otherwise false.
      */
     public static boolean helperCircle(double x1, double y1, double x2, double y2, double x3, double y3, double r) {
         if (r <= 0) throw new IllegalArgumentException("The value of r must be greater than 0");
-        double a = Math.hypot(x2 - x1, y2 - y1);
-        double b = Math.hypot(x3 - x2, y3 - y2);
-        double c = Math.hypot(x3 - x1, y3 - y1);
+        double scale = Math.pow(10, 8);
+        double a = Math.round((Math.hypot(x2 - x1, y2 - y1)) * scale) / scale;
+        double b = Math.round((Math.hypot(x3 - x2, y3 - y2)) * scale) / scale;
+        double c = Math.round((Math.hypot(x3 - x1, y3 - y1)) * scale) / scale;
         if (a > 2 * r || b > 2 * r || c > 2 * r) return false;
         double angle1 = Math.acos((a * a + c * c - b * b) / (2 * a * c));
-        double angleCenter = Math.acos((2 * r * r - b * b) / (2 * r * r));
-        return angle1 * 2 >= angleCenter;
+
+        if (angle1 == 0 || angle1 == Math.PI) { // When the three points are one a straight line
+            return (a <= 2 * r && b <= 2 * r && c <= 2 * r);
+        } else {
+            double angleCenter = Math.acos((2 * r * r - b * b) / (2 * r * r));
+            return angle1 * 2 >= angleCenter;
+        }
     }
 
     /**
@@ -264,7 +270,7 @@ public class LaunchInterceptorConditions {
      * @param kPts
      * @param length1
      * @param numPoints the number of data points.
-     * @return
+     * @return true if such two points exist, otherwise false.
      */
     public static boolean condition7(double[] xList, double[] yList, int kPts, double length1, int numPoints) {
         if (length1 < 0)
@@ -276,7 +282,31 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
+    /**
+     * There exists at least one set of three data points separated by exactly aPTS and bPTS consecutive
+     * intervening points, respectively, that cannot be contained within or on a circle of radius RADIUS1.
+     * The condition is not met when NUMPOINTS < 5.
+     *
+     * @param xList     the x-coordinates of the data points
+     * @param yList     the y-coordinates of the data points
+     * @param aPts
+     * @param bPts
+     * @param radius
+     * @param numPoints the number of data points.
+     * @return true if such three points exist, otherwise false.
+     */
     public static boolean condition8(double[] xList, double[] yList, int aPts, int bPts, double radius, int numPoints) {
+        if (numPoints < 5) return false;
+        if (aPts < 1 || bPts < 1) throw new IllegalArgumentException();
+        if (aPts + bPts > numPoints - 3) throw new IllegalArgumentException();
+        for (int i = 0; i <= numPoints - aPts - bPts - 3; i++) {
+            if (!helperCircle(
+                    xList[i], yList[i],
+                    xList[i + aPts + 1], yList[i + aPts + 1],
+                    xList[i + aPts + bPts + 2], yList[i + aPts + bPts + 2],
+                    radius))
+                return true;
+        }
         return false;
     }
 

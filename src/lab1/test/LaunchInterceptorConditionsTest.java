@@ -845,13 +845,14 @@ public class LaunchInterceptorConditionsTest {
         double x3 = 1;
         double y3 = -0.3;
         double r = 1;
-        assertFalse(LaunchInterceptorConditions.helperCircle(x1, y1, x2, y2, x3, y3, r));
+        assertTrue(LaunchInterceptorConditions.helperCircle(x1, y1, x2, y2, x3, y3, r));
         x1 = -0.2;
         y1 = 0;
         x2 = 0;
         y2 = 0;
         x3 = 0.2;
         y3 = 0;
+        r =  0.1;
         assertFalse(LaunchInterceptorConditions.helperCircle(x1, y1, x2, y2, x3, y3, r));
     }
 
