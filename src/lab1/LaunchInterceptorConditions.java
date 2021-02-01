@@ -110,15 +110,107 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition3() {
+    /**
+     * There exists at least one set of three consecutive data points that are the vertices of a triangle 
+     * with area greater than AREA1.
+     * 
+     * @param x
+     * @param y
+     * @param area1
+     * @return
+     */
+    public static boolean condition3(double[] x, double[] y, double area1) {
+        if (x.length != y.length)
+            return false;
+
+        if (x.length < 3)
+            return false;
+
+        if (area1 < 0)
+            throw new IllegalArgumentException("Area can not be negative");
+        
+        for (int i = 0; i < y.length - 2; i++) {
+            boolean conditionMet = triangleAreaIsGreaterThanArea(x[i], y[i], x[i + 1], y[i + 1], x[i + 2], y[i + 2], area1);
+            if (conditionMet)
+                return true;
+        }
         return false;
     }
 
-    public static boolean condition4() {
+    /**
+     * Returns true if there exists at least one set of Q PTS consecutive data points that lie in more than QUADS quadrants
+     * 
+     * @param x
+     * @param y
+     * @param quads
+     * @param qPts
+     * @return True of false
+     */
+    public static boolean condition4(double[] x, double[] y, int quads, int qPts) {
+        
+        if (qPts < 2 || qPts > x.length)
+            return false;
+        
+        if (quads > 3 || quads < 1)
+            throw new IllegalArgumentException("quads must be between the value 1 and 3 inclusive");
+        
+        for (int i = 0; i <= x.length - qPts; i++) {
+            boolean[] pointsExistInQuadrant = new boolean[] {false, false, false, false};
+            for (int qPtsIndex = 0; qPtsIndex < qPts; qPtsIndex++) {
+                double xPos = x[qPtsIndex + i];
+                double yPos = y[qPtsIndex + i];
+
+                // Check if point is in quadrant 1
+                if (xPos >= 0 && yPos >= 0) {
+                    pointsExistInQuadrant[0] = true;
+                }
+
+                // Check if point is in quadrant 2
+                else if (xPos < 0 && yPos >= 0) {
+                    pointsExistInQuadrant[1] = true;
+                }
+                
+                // Check if point is in quadrant 3
+                else if (xPos < 0 && yPos < 0) {
+                    pointsExistInQuadrant[2] = true;
+                }
+
+                // Check if point is in quadrant 4
+                else if (xPos > 0 && yPos < 0) {
+                    pointsExistInQuadrant[3] = true;
+                }
+            }
+
+            int numConsecutivePointsInDifferentQuadrants = 0;
+            for (boolean inQuadrant : pointsExistInQuadrant) {
+                if (inQuadrant) {
+                    numConsecutivePointsInDifferentQuadrants++;
+                }
+            }
+
+            if (numConsecutivePointsInDifferentQuadrants > quads)
+                return true;
+        }
         return false;
     }
 
-    public static boolean condition5() {
+    /**
+     * There exists at least one set of two consecutive data points, (X[i],Y[i]) and (X[j],Y[j]), such
+     * that X[j] - X[i] < 0. (where i = j-1)
+     * 
+     * @param x
+     * @param y
+     * @return True if the condition is met, otherwise false
+     */
+    public static boolean condition5(double[] x, double[] y) {
+        if (x.length != y.length || x.length < 2)
+            return false;
+
+        for (int i = 0; i < x.length - 1; i++) {
+            if (x[i + 1] - x[i] < 0)
+                return true;
+        }
+        
         return false;
     }
 
