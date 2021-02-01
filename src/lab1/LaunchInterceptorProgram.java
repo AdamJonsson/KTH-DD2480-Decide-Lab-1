@@ -1,7 +1,8 @@
 package lab1;
 
 public class LaunchInterceptorProgram {
-    static void DECIDE(String inputAsJSON) {
+    public static boolean DECIDE(String inputAsJSON) {
         System.out.print("Yes");
+        return false;
     }
 }
