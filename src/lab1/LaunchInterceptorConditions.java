@@ -267,11 +267,11 @@ public class LaunchInterceptorConditions {
             double x2 = x[i + kPts];
             double y2 = y[i + kPts];
 
-            if helperDistance(x1, y1, x2, y2, length1) {
+            if (helperDistance(x1, y1, x2, y2, length1)) {
                 length1Fulfilled = true;
             }
 
-            if helperDistance(x1, y1, x2, y2, length2) {
+            if (helperDistance(x1, y1, x2, y2, length2)) {
                 length2Fulfilled = true;
             }
         }
@@ -297,7 +297,7 @@ public class LaunchInterceptorConditions {
         boolean radius2Fulfilled = false;
 
         aPts += 1;
-        bPts += 1
+        bPts += 1;
         if (x.length < aPts + bPts || y.length < aPts + bPts) {
             return false;
         }
@@ -312,11 +312,11 @@ public class LaunchInterceptorConditions {
             double x3 = x[i + aPts + bPts];
             double y3 = y[i + aPts + bPts];
 
-            if helperCircle(x1, y1, x2, y2, x3, y3, radius1) {
+            if (helperCircle(x1, y1, x2, y2, x3, y3, radius1)) {
                 radius1Fulfilled = true;
             }
 
-            if helperCircle(x1, y1, x2, y2, x3, y3, radius2) {
+            if (helperCircle(x1, y1, x2, y2, x3, y3, radius2)) {
                 radius2Fulfilled = true;
             }
         }
@@ -342,7 +342,7 @@ public class LaunchInterceptorConditions {
         boolean triangle2Fulfilled = false;
 
         ePts += 1;
-        fPts += 1
+        fPts += 1;
         if (x.length < ePts + fPts || y.length < ePts + fPts) {
             return false;
         }
@@ -357,11 +357,11 @@ public class LaunchInterceptorConditions {
             double x3 = x[i + ePts + fPts];
             double y3 = y[i + ePts + fPts];
 
-            if helperCircle(x1, y1, x2, y2, x3, y3, area1) {
+            if (helperCircle(x1, y1, x2, y2, x3, y3, area1)) {
                 triangle1Fulfilled = true;
             }
 
-            if helperCircle(x1, y1, x2, y2, x3, y3, area2) {
+            if (helperCircle(x1, y1, x2, y2, x3, y3, area2)) {
                 triangle2Fulfilled = true;
             }
         }
