@@ -357,11 +357,11 @@ public class LaunchInterceptorConditions {
             double x3 = x[i + ePts + fPts];
             double y3 = y[i + ePts + fPts];
 
-            if (helperCircle(x1, y1, x2, y2, x3, y3, area1)) {
+            if (triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, area1)) {
                 triangle1Fulfilled = true;
             }
 
-            if (helperCircle(x1, y1, x2, y2, x3, y3, area2)) {
+            if (triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, area2)) {
                 triangle2Fulfilled = true;
             }
         }
