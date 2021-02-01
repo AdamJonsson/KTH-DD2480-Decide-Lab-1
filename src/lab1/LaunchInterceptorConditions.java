@@ -237,14 +237,12 @@ public class LaunchInterceptorConditions {
         if (nPts > numPoints || nPts < 3) {
             throw new IllegalArgumentException("nPts must be in the the interval [3, NUMPOIUNTS]");
         }
-
-        outerLoop:
+        
         for (int i = 0; i <= numPoints - nPts; i++) {
             if (x[i + nPts - 1] == x[i] && y[i + nPts - 1] == y[i]) {
                 for (int j = 1; j < nPts - 1; j++) {
-                    if (!helperDistance(x[i], y[i], x[i + j], y[i + j], dist)) continue outerLoop;
+                    if (helperDistance(x[i], y[i], x[i + j], y[i + j], dist)) return true;
                 }
-                return true;
             } else {
                 for (int j = 1; j < nPts - 1; j++) {
                     double a = Math.hypot(x[i + nPts - 1] - x[i], y[i + nPts - 1] - y[i]);

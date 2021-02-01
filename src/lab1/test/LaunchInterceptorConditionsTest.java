@@ -531,9 +531,9 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
-     * Should return false since distance to all other points from the coincident point isn't >1
+     * Should return true since distance to one of the points from the coincident point is > 1
      *
-     * @result false
+     * @result true
      */
     @Test
     void co6_5() {
@@ -543,7 +543,7 @@ public class LaunchInterceptorConditionsTest {
         double dist = 1;
         int numPoints = 4;
         boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
-        assertEquals(result, false);
+        assertEquals(result, true);
     }
 
     /**
