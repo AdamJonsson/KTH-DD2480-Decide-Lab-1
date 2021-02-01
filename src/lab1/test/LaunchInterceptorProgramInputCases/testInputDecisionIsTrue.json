@@ -3,8 +3,7 @@
         "x" : [1, 2, 3, 4, 5, 6, 7, 9, 10],
         "y" : [1, 2, 3, 4, 5, 6, 7, 9, 10]
     },
-    "numOfPoints": 10,
-    "LCM": [
+    "lcm": [
         ["A", "A", "A", "A", "A", "A", "A", "A", "N", "A", "N", "A", "A", "N", "N"],
         ["A", "A", "A", "A", "A", "A", "A", "A", "N", "A", "N", "A", "A", "N", "N"],
         ["A", "A", "A", "A", "A", "A", "A", "A", "N", "A", "N", "A", "A", "N", "N"],
@@ -22,25 +21,23 @@
         ["N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "A"]
     ],
     "PUV": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true ],
-    "parametersLIC" : {
-        "LENGTH1": 0.99,
-        "LENGTH2": 2,
-        "RADIUS1": 1.01,
-        "RADIUS2": 0,
-        "EPSILON": 0,
-        "AREA1": 0.49,
-        "AREA2": 0,
-        "QUADS": 3,
-        "DIST": 0.99,
-        "A_PTS": 1,
-        "B_PTS": 1,
-        "C_PTS": 1,
-        "D_PTS": 1,
-        "E_PTS": 1,
-        "F_PTS": 1,
-        "G_PTS": 1,
-        "K_PTS": 1,
-        "N_PTS": 5,
-        "Q_PTS": 5
-    }
+    "LENGTH1": 0.99,
+    "LENGTH2": 2,
+    "RADIUS1": 1.01,
+    "RADIUS2": 0,
+    "EPSILON": 0,
+    "AREA1": 0.49,
+    "AREA2": 0,
+    "QUADS": 3,
+    "DIST": 0.99,
+    "A_PTS": 1,
+    "B_PTS": 1,
+    "C_PTS": 1,
+    "D_PTS": 1,
+    "E_PTS": 1,
+    "F_PTS": 1,
+    "G_PTS": 1,
+    "K_PTS": 1,
+    "N_PTS": 5,
+    "Q_PTS": 5
  }
