@@ -279,7 +279,7 @@ public class LaunchInterceptorConditions {
     }
 
     /**
-     * Returns true if There exists at least one set of three data points, 
+     * Returns true if there exists at least one set of three data points, 
      * separated by exactly A PTS and B PTS consecutive intervening points, 
      * respectively, that cannot be contained within or on a circle of radius RADIUS1 and RADIUS2.
      * 
@@ -324,7 +324,7 @@ public class LaunchInterceptorConditions {
     }
 
     /**
-     * Returns true if There exists at least one set of three data points, 
+     * Returns true if there exists at least one set of three data points, 
      * separated by exactly E PTS and F PTS consecutive intervening points, 
      * respectively, that have an area greater than AREA1 and AREA2
      * 
