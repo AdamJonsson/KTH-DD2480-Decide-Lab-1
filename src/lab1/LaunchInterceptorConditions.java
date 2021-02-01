@@ -44,7 +44,7 @@ public class LaunchInterceptorConditions {
 
         int firstIndex = 0;
         int vertexIndex = c_pts + 1;
-        int lastIndex = numPoints - 1;
+        int lastIndex = vertexIndex + d_pts + 1;
 
         if (x[firstIndex] == x[vertexIndex] && y[firstIndex] == y[vertexIndex]) {
             return false;
@@ -54,6 +54,7 @@ public class LaunchInterceptorConditions {
 
         return true;
     }
+
     public static boolean condition10(double[] x, double[] y, int e_pts, int f_pts, double area1, int numPoints) {
         return false;
     }
