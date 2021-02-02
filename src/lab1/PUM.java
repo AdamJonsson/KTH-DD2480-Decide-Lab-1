@@ -51,7 +51,7 @@ public class PUM {
         cmvVector[9] = LaunchInterceptorConditions.condition9(params.x, params.y, params.cPts, params.dPts, params.epsilon, params.getNumpoints());
         cmvVector[10] = LaunchInterceptorConditions.condition10(params.x, params.y, params.ePts, params.fPts, params.area1, params.getNumpoints());
         cmvVector[11] = LaunchInterceptorConditions.condition11(params.x, params.y, params.gPts, params.getNumpoints());
-        cmvVector[12] = LaunchInterceptorConditions.condition12(params.x, params.y, params.length1, params.length2, params.kPts);
+        cmvVector[12] = LaunchInterceptorConditions.condition12(params.x, params.y, params.length1, params.length2, params.kPts, params.getNumpoints());
         cmvVector[13] = LaunchInterceptorConditions.condition13(params.x, params.y, params.aPts, params.bPts, params.radius1, params.radius2, params.getNumpoints());
         cmvVector[14] = LaunchInterceptorConditions.condition14(params.x, params.y, params.ePts, params.fPts, params.area1, params.area2, params.getNumpoints());
 

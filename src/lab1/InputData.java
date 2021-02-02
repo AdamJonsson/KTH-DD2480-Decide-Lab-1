@@ -66,6 +66,10 @@ public class InputData {
         this.nPts = nPts;
         this.qPts = qPts;
     }
+    
+    public int getNumpoints() {
+        return this.x.length;
+    }
 }
 
 

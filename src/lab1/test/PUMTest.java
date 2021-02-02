@@ -11,7 +11,7 @@ public class PUMTest {
     boolean[] cmv1 = new boolean[]{true, true, true, true, true, true, true, true, true, true, true, true, true, true, true};
     boolean[] cmv2 = new boolean[]{false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
     boolean[] cmv3 = new boolean[]{true, false, true, false, true, false, true, false, true, false, true, false, true, false, true};
-    boolean[] cvmInstructionsExample = new boolean[]{false, true, true, true, false, false, false, false, false, false, false, false, false, false, false};
+    boolean[] cmvInstructionsExample = new boolean[]{false, true, true, true, false, false, false, false, false, false, false, false, false, false, false};
 
 
     // 0: NOTUSED, 1: ANDD, 2: ORR
@@ -89,7 +89,7 @@ public class PUMTest {
      */
     @Test
     void PUM_ValidInput_ValidOutput() {
-        PUM pum = new PUM(cvmInstructionsExample, lcmInstructionsExample);
+        PUM pum = new PUM(cmvInstructionsExample, lcmInstructionsExample);
         assertFalse(pum.get(0, 1));
         assertFalse(pum.get(0, 3));
         assertTrue(pum.get(1, 2));
@@ -147,7 +147,7 @@ public class PUMTest {
      */
     @Test
     void PUM_ValidInput_Symmetry() {
-        PUM pum = new PUM(cvmInstructionsExample, lcmInstructionsExample);
+        PUM pum = new PUM(cmvInstructionsExample, lcmInstructionsExample);
         assertEquals(pum.get(0, 1), pum.get(1, 0));
         assertEquals(pum.get(1, 3), pum.get(3, 1));
         assertEquals(pum.get(2, 3), pum.get(3, 2));
@@ -159,7 +159,7 @@ public class PUMTest {
      */
     @Test
     void PUM_ReadingInvalidCell() {
-        PUM pum = new PUM(cvmInstructionsExample, lcmInstructionsExample);
+        PUM pum = new PUM(cmvInstructionsExample, lcmInstructionsExample);
         assertThrows(IllegalArgumentException.class, () -> pum.get(0, 0));
         assertThrows(IllegalArgumentException.class, () -> pum.get(5, 5));
     }
@@ -169,7 +169,7 @@ public class PUMTest {
      */
     @Test
     void PUM_InvalidCellIndex() {
-        PUM pum = new PUM(cvmInstructionsExample, lcmInstructionsExample);
+        PUM pum = new PUM(cmvInstructionsExample, lcmInstructionsExample);
         assertThrows(IllegalArgumentException.class, () -> pum.get(-1, 0));
         assertThrows(IllegalArgumentException.class, () -> pum.get(15, 0));
         assertThrows(IllegalArgumentException.class, () -> pum.get(0, -1));
