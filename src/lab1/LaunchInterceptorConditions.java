@@ -250,13 +250,13 @@ public class LaunchInterceptorConditions {
      * @return True of false
      */
 
-    public static boolean condition12(double[] x, double[] y, double length1, double length2, int kPts) {
+    public static boolean condition12(double[] x, double[] y, double length1, double length2, int kPts, int numPoints) {
         boolean length1Fulfilled = false;
         boolean length2Fulfilled = false;
         // We need kPts intervening points: if kpts = 2, this means we need two points between (x1, y1) and (x2, y2)
         // meaning we need to set the separation to kPts + 1
         kPts += 1;
-        if (x.length < kPts || y.length < kPts) {
+        if (x.length < kPts || y.length < kPts || numPoints < 3) {
             return false;
         }
 
@@ -298,7 +298,7 @@ public class LaunchInterceptorConditions {
 
         aPts += 1;
         bPts += 1;
-        if (x.length < aPts + bPts || y.length < aPts + bPts) {
+        if (x.length < aPts + bPts || y.length < aPts + bPts || numPoints < 5) {
             return false;
         }
 
@@ -343,7 +343,7 @@ public class LaunchInterceptorConditions {
 
         ePts += 1;
         fPts += 1;
-        if (x.length < ePts + fPts || y.length < ePts + fPts) {
+        if (x.length < ePts + fPts || y.length < ePts + fPts || numPoints < 5) {
             return false;
         }
 
