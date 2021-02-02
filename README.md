@@ -1,9 +1,30 @@
 # KTH-DD2480-Decide-Lab-1
 ## Launch Interceptor Program
-This repository contains the code for the first lab in the course DD2480 at KTH. The program is a launch interceptor program that determines if a interceptor should be launched based upon input radar tracking information. More info about how the launch interceptor program works can be found here: [Launch Interceptor Program - Requirements Specification](./Launch%20Interceptor%20Program%20-%20Requirements%20Specification.pdf)
+This repository contains the code for the first lab in the course DD2480 at KTH. 
+
+The program is a launch interceptor program (LIC) that determines if a interceptor should be launched based upon input radar tracking information. More info about how the launch interceptor program works can be found here: [Launch Interceptor Program - Requirements Specification](./Launch%20Interceptor%20Program%20-%20Requirements%20Specification.pdf)
+
+The main mechanism of the LIC is in the `DECIDE()`-function, which generates a boolean signal, `true` or  `false`, based on input data. The output of `DECIDE()` whether the LIC interceptor should launched or not.
+
+The user inputs the data in the form given in `InputDataProvider.java`. The program `DECIDE()` then generates the signal based on this input. The `DECIDE()`-function makes calculates with the input in several steps before arriving to the result.
 
 ### How to use
-Currently, the program do not take any external inputs. To test your own set of inputs, you can add them in the InputDataProvider.java and test them by calling the decide function inside a test.
+Currently, the program do not take any external inputs. To test your own set of inputs, you can add them in the `InputDataProvider.java` and test them by calling the decide function inside a test.
+
+### Data description
+
+#### INPUT
+* `NUMPOINTS` An integer, describing the number of planar data points.
+* `POINTS` Two double vectors, which together represent the coordinates of data points.
+* `PARAMETERS` A class/struct holding various parameters required for calculating the LIC.
+* `LCM` An integer matrix, representing the Logical Connector Matrix. It is used to calculate the `PUM`.
+* `PUV` A boolean vector, representing the Preliminary Unlocking Vector. It is used to calculate `PUM`.
+
+#### OUTPUT
+* `LAUNCH` Final launch / no launch decision encoded as ”YES”, ”NO” on the standard output. In addition, the following intermediate results are computed.
+* `CMV` Conditions Met Vector.
+* `PUM` Preliminary Unlocking Matrix.
+* `FUV` Final Unlocking Vector.
 
 ## Statement of contributions
 The main procedure for implementing the launch interceptor program was to mainly use the Black-box testing method. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One of the two group members created tests for the given feature first, then the other group member wrote the code for the feature. The benefits of using this method was that at least two members needed to understand the problem, thus minimizing the risk of misconception about the problem.
