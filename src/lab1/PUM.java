@@ -1,7 +1,5 @@
 package lab1;
 
-import java.lang.reflect.Parameter;
-
 public class PUM {
 
     private boolean[][] pumMatrix;
@@ -41,21 +39,21 @@ public class PUM {
         cmvVector = new boolean[lcm.length];
 
         //calculate the cmv
-        cmvVector[0] = LaunchInterceptorConditions.condition0(params.xList, params.yList, params.length1);
-        cmvVector[1] = LaunchInterceptorConditions.condition1(params.xList, params.yList, params.radius1);
-        cmvVector[2] = LaunchInterceptorConditions.condition2(params.xList, params.yList, params.epsilon);
-        cmvVector[3] = LaunchInterceptorConditions.condition3(params.xList, params.yList, params.area1);
-        cmvVector[4] = LaunchInterceptorConditions.condition4(params.xList, params.yList, params.quads, qPts);
-        cmvVector[5] = LaunchInterceptorConditions.condition5(params.xList, params.yList);
-        cmvVector[6] = LaunchInterceptorConditions.condition6(params.xList, params.yList, params.nPts, params.dist, params.getNumpoints());
-        cmvVector[7] = LaunchInterceptorConditions.condition7(params.xList, params.yList, params.kPts, params.length1, params.getNumpoints());
-        cmvVector[8] = LaunchInterceptorConditions.condition8(params.xList, params.yList, params.aPts, params.bPts, params.radius1, params.getNumpoints());
-        cmvVector[9] = LaunchInterceptorConditions.condition9(params.xList, params.yList, params.cPts, params.dPts, params.epsilon, params.getNumpoints());
-        cmvVector[10] = LaunchInterceptorConditions.condition10(params.xList, params.yList, params.ePts, params.fPts, params.area1, params.getNumpoints());
-        cmvVector[11] = LaunchInterceptorConditions.condition11(params.xList, params.yList, params.gPts, params.getNumpoints());
-        cmvVector[12] = LaunchInterceptorConditions.condition12(params.xList, params.yList, params.length1, params.length2, params.kPts);
-        cmvVector[13] = LaunchInterceptorConditions.condition13(params.xList, params.yList, params.aPts, params.bPts, params.radius1, params.radius2, params.getNumpoints());
-        cmvVector[14] = LaunchInterceptorConditions.condition14(params.xList, params.yList, params.ePts, params.fPts, params.area1, params.area2, params.getNumpoints());
+        cmvVector[0] = LaunchInterceptorConditions.condition0(params.x, params.y, params.length1);
+        cmvVector[1] = LaunchInterceptorConditions.condition1(params.x, params.y, params.radius1);
+        cmvVector[2] = LaunchInterceptorConditions.condition2(params.x, params.y, params.epsilon);
+        cmvVector[3] = LaunchInterceptorConditions.condition3(params.x, params.y, params.area1);
+        cmvVector[4] = LaunchInterceptorConditions.condition4(params.x, params.y, params.quads, params.qPts);
+        cmvVector[5] = LaunchInterceptorConditions.condition5(params.x, params.y);
+        cmvVector[6] = LaunchInterceptorConditions.condition6(params.x, params.y, params.nPts, params.dist, params.getNumpoints());
+        cmvVector[7] = LaunchInterceptorConditions.condition7(params.x, params.y, params.kPts, params.length1, params.getNumpoints());
+        cmvVector[8] = LaunchInterceptorConditions.condition8(params.x, params.y, params.aPts, params.bPts, params.radius1, params.getNumpoints());
+        cmvVector[9] = LaunchInterceptorConditions.condition9(params.x, params.y, params.cPts, params.dPts, params.epsilon, params.getNumpoints());
+        cmvVector[10] = LaunchInterceptorConditions.condition10(params.x, params.y, params.ePts, params.fPts, params.area1, params.getNumpoints());
+        cmvVector[11] = LaunchInterceptorConditions.condition11(params.x, params.y, params.gPts, params.getNumpoints());
+        cmvVector[12] = LaunchInterceptorConditions.condition12(params.x, params.y, params.length1, params.length2, params.kPts);
+        cmvVector[13] = LaunchInterceptorConditions.condition13(params.x, params.y, params.aPts, params.bPts, params.radius1, params.radius2, params.getNumpoints());
+        cmvVector[14] = LaunchInterceptorConditions.condition14(params.x, params.y, params.ePts, params.fPts, params.area1, params.area2, params.getNumpoints());
 
         //calculate the pum
         for (int i = 0; i < lcm.length; i++) {
