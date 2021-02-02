@@ -1,9 +1,13 @@
 package lab1;
 
+/**
+ * A class for representing the input data.
+ */
 public class InputData {
+    public int numPoints;
     public double[] x;
     public double[] y;
-    public String[][] lcm;
+    public int[][] lcm;
     public boolean[] puv;
     public double length1;
     public double length2;
@@ -25,15 +29,21 @@ public class InputData {
     public int nPts;
     public int qPts;
 
-    /** There need to exist an empty constructor for JSON parsing */
-    public InputData() {}
+    /**
+     * There need to exist an empty constructor for JSON parsing
+     */
+    public InputData() {
+    }
 
-    /** This constructor is used to manually construct input data */
-    public InputData(double[] x, double[] y, String[][] lcm, boolean[] puv, double length1, double length2,
-            double radius1, double radius2, double epsilon, double area1, double area2, int quads, double dist,
-            int aPts, int bPts, int cPts, int dPts, int ePts, int fPts, int gPts, int kPts, int nPts, int qPts) {
+    /**
+     * This constructor is used to manually construct input data
+     */
+    public InputData(double[] x, double[] y, int[][] lcm, boolean[] puv, double length1, double length2,
+                     double radius1, double radius2, double epsilon, double area1, double area2, int quads, double dist,
+                     int aPts, int bPts, int cPts, int dPts, int ePts, int fPts, int gPts, int kPts, int nPts, int qPts) {
         this.x = x;
         this.y = y;
+        this.numPoints = x.length;
         this.lcm = lcm;
         this.puv = puv;
         this.length1 = length1;
