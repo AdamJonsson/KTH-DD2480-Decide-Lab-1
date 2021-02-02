@@ -406,17 +406,25 @@ public class LaunchInterceptorConditions {
         boolean length2Fulfilled = false;
         // We need kPts intervening points: if kpts = 2, this means we need two points between (x1, y1) and (x2, y2)
         // meaning we need to set the separation to kPts + 1
-        kPts += 1;
+        
+        if (length2 < 0 || length1 < 0) {
+            throw new IllegalArgumentException("length1 and length2 can not be negative");
+        }
+        
+        if (kPts < 0) {
+            throw new IllegalArgumentException("kPts must be bigger than 0");
+        }
+
         if (x.length < kPts || y.length < kPts || numPoints < 3) {
             return false;
         }
 
-        for (int i = 0; i < x.length - kPts; i += 1) {
+        for (int i = 0; i < x.length - kPts - 1; i += 1) {
             double x1 = x[i];
             double y1 = y[i];
 
-            double x2 = x[i + kPts];
-            double y2 = y[i + kPts];
+            double x2 = x[i + kPts + 1];
+            double y2 = y[i + kPts + 1];
 
             if (helperDistance(x1, y1, x2, y2, length1)) {
                 length1Fulfilled = true;
