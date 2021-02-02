@@ -34,9 +34,9 @@ public class PUM {
      *
      * @param lcm a ready made logical-connector matrix. 0: NOTUSED, 1: ANDD, 2: ORR
      */
-    public PUM(LaunchInterceptorConditions lic, int[][] lcm, InputData params){
-        pumMatrix = new boolean[lcm.length][lcm[0].length];
-        cmvVector = new boolean[lcm.length];
+    public PUM(InputData params){
+        pumMatrix = new boolean[params.lcm.length][params.lcm[0].length];
+        cmvVector = new boolean[params.lcm.length];
 
         //calculate the cmv
         cmvVector[0] = LaunchInterceptorConditions.condition0(params.x, params.y, params.length1);
@@ -56,13 +56,13 @@ public class PUM {
         cmvVector[14] = LaunchInterceptorConditions.condition14(params.x, params.y, params.ePts, params.fPts, params.area1, params.area2, params.getNumpoints());
 
         //calculate the pum
-        for (int i = 0; i < lcm.length; i++) {
-            for (int j = 0; j < lcm[0].length; j++) {
-                if (lcm[i][j] == 0)
+        for (int i = 0; i < params.lcm.length; i++) {
+            for (int j = 0; j < params.lcm[0].length; j++) {
+                if (params.lcm[i][j] == 0)
                     pumMatrix[i][j] = true;
-                else if (lcm[i][j] == 1)
+                else if (params.lcm[i][j] == 1)
                     pumMatrix[i][j] = cmvVector[i] && cmvVector[j];
-                else if (lcm[i][j] == 2)
+                else if (params.lcm[i][j] == 2)
                     pumMatrix[i][j] = cmvVector[i] || cmvVector[j];
                 else
                     throw new IllegalArgumentException("Not a valid LCM!");
