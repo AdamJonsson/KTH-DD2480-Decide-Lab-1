@@ -128,6 +128,19 @@ public class LaunchInterceptorConditions {
     }
 
     public static boolean condition11(double[] x, double[] y, int g_pts, int numPoints) {
-        return false;
+        if (numPoints < 3) return false;
+
+        boolean ret = false;
+
+        for (int i = 0; i < (numPoints - g_pts - 1); i++) {
+            int firstIndex = i;
+            int secondIndex = i + g_pts + 1;
+
+            if ((x[secondIndex] - x[firstIndex]) < 0) {
+                ret = true;
+            }
+        }
+
+        return ret;
     }
 }
