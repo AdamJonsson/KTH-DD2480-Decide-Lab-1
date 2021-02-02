@@ -208,7 +208,7 @@ public class LaunchInterceptorConditionsTest {
         y = new double[]{};
         assertFalse(LaunchInterceptorConditions.condition5(x, y));
     }
-    
+
     /**
      * Testing two valid points and a valid LENGTH1.
      */
@@ -324,6 +324,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing valid data for condition 0
+     *
      * @result false
      */
     @Test
@@ -337,6 +338,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing valid negative data for condition 0
+     *
      * @result false
      */
     @Test
@@ -350,6 +352,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing empty data for condition 0
+     *
      * @result false
      */
     @Test
@@ -363,6 +366,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing empty data for condition 0
+     *
      * @result false
      */
     @Test
@@ -376,6 +380,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing valid data for condition 0
+     *
      * @result true
      */
     @Test
@@ -389,6 +394,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing large valid data for condition 0
+     *
      * @result false
      */
     @Test
@@ -401,7 +407,40 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
+     * Should return false when numPoints < 3
+     *
+     * @result false
+     */
+    @Test
+    void co6_0() {
+        double[] xList = new double[]{3, 4};
+        double[] yList = new double[]{0, 1};
+        int nPts = 2;
+        double dist = 0;
+        int numPoints = 2;
+        boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Should return false since all points are in a line
+     *
+     * @result false
+     */
+    @Test
+    void co6_1() {
+        double[] xList = new double[]{1, 2, 3};
+        double[] yList = new double[]{1, 2, 3};
+        int nPts = 3;
+        double dist = 1;
+        int numPoints = 3;
+        boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
      * Testing single data point for condition 0
+     *
      * @result false
      */
     @Test
@@ -417,6 +456,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing valid data for condition 0
+     *
      * @result true
      */
     @Test
@@ -429,7 +469,24 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
+     * Should return true since the distance is greater than 0
+     *
+     * @result true
+     */
+    @Test
+    void co6_2() {
+        double[] xList = new double[]{1, 1, 3};
+        double[] yList = new double[]{1, 3, 2};
+        int nPts = 3;
+        double dist = 0;
+        int numPoints = 3;
+        boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
+        assertEquals(result, true);
+    }
+
+    /**
      * Testing valid negative data for condition 0
+     *
      * @result true
      */
     @Test
@@ -441,8 +498,42 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(result, true);
     }
 
+
+    /**
+     * Should return true since the end and start point is the same and distance to the middle point is >1
+     *
+     * @result true
+     */
+    @Test
+    void co6_4() {
+        double[] xList = new double[]{1, 1, 1};
+        double[] yList = new double[]{1, 3, 1};
+        int nPts = 3;
+        double dist = 1;
+        int numPoints = 3;
+        boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
+        assertEquals(result, true);
+    }
+
+    /**
+     * Should return true since distance to one of the points from the coincident point is > 1
+     *
+     * @result true
+     */
+    @Test
+    void co6_5() {
+        double[] xList = new double[]{1, 1, 1, 1};
+        double[] yList = new double[]{1, 3, 2, 1};
+        int nPts = 4;
+        double dist = 1;
+        int numPoints = 4;
+        boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
+        assertEquals(result, true);
+    }
+
     /**
      * Testing empty data for condition 0
+     *
      * @result false
      */
     @Test
@@ -456,6 +547,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing empty data for condition 0
+     *
      * @result false
      */
     @Test
@@ -469,6 +561,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing valid data for condition 1
+     *
      * @result false
      */
     @Test
@@ -481,7 +574,24 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
+     * Should return false when numPoints < 3
+     *
+     * @result false
+     */
+    @Test
+    void co7_1() {
+        double[] xList = new double[]{1, 1};
+        double[] yList = new double[]{1, 3};
+        int kPts = 4;
+        double length1 = 1;
+        int numPoints = 2;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
      * Testing large valid data for condition 1
+     *
      * @result false
      */
     @Test
@@ -494,7 +604,73 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
+     * Should return false since first and third point aren't distance >2 from each other
+     *
+     * @result false
+     */
+    @Test
+    void co7_2() {
+        double[] xList = new double[]{1, 2, 3};
+        double[] yList = new double[]{1, 1, 1};
+        int kPts = 1;
+        double length1 = 2;
+        int numPoints = 3;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
+     * Should return true since first and third point are distance >2 from each other
+     *
+     * @result true
+     */
+    @Test
+    void co7_3() {
+        double[] xList = new double[]{1, 2, 4};
+        double[] yList = new double[]{1, 1, 1};
+        int kPts = 1;
+        double length1 = 2;
+        int numPoints = 3;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, true);
+    }
+
+    /**
+     * Should return true since second and fifth point are distance >4 from each other
+     *
+     * @result true
+     */
+    @Test
+    void co7_4() {
+        double[] xList = new double[]{1, 2, 3, 4, 7};
+        double[] yList = new double[]{1, 1, 1, 1, 1};
+        int kPts = 2;
+        double length1 = 4;
+        int numPoints = 5;
+        boolean result = LaunchInterceptorConditions.condition7(xList, yList, kPts, length1, numPoints);
+        assertEquals(result, true);
+    }
+
+    /**
+     * Should return false when numPoints < 5
+     *
+     * @result false
+     */
+    @Test
+    void co8_1() {
+        double[] xList = new double[]{0, 0, 0, 0};
+        double[] yList = new double[]{0, 0, 0, 0};
+        int aPts = 1;
+        int bPts = 1;
+        double radius = 1;
+        int numPoints = 4;
+        boolean result = LaunchInterceptorConditions.condition8(xList, yList, aPts, bPts, radius, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
      * Testing single data point for condition 1
+     *
      * @result false
      */
     @Test
@@ -509,6 +685,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing two data points for condition 1
+     *
      * @result false
      */
     @Test
@@ -522,6 +699,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing valid data points that are not consecutive but would return true if they were
+     *
      * @result false
      */
     @Test
@@ -537,6 +715,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing valid data for angle of pi between points
+     *
      * @result false
      */
     @Test
@@ -549,7 +728,25 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
+     * Should return false since the first and fifth point would be on a circle with center in third point
+     *
+     * @result false
+     */
+    @Test
+    void co8_2() {
+        double[] xList = new double[]{1, 2, 3, 4, 5};
+        double[] yList = new double[]{0, 0, 0, 0, 0};
+        int aPts = 1;
+        int bPts = 1;
+        double radius = 2;
+        int numPoints = 5;
+        boolean result = LaunchInterceptorConditions.condition8(xList, yList, aPts, bPts, radius, numPoints);
+        assertEquals(result, false);
+    }
+
+    /**
      * Testing empty data
+     *
      * @result false
      */
     @Test
@@ -562,7 +759,25 @@ public class LaunchInterceptorConditionsTest {
     }
 
     /**
+     * Should return true due to the small radius
+     *
+     * @result true
+     */
+    @Test
+    void co8_3() {
+        double[] xList = new double[]{1, 2, 3, 4, 5, 6, 7};
+        double[] yList = new double[]{0, 0, 0, 0, 0, 0, 0};
+        int aPts = 1;
+        int bPts = 2;
+        double radius = 1;
+        int numPoints = 7;
+        boolean result = LaunchInterceptorConditions.condition8(xList, yList, aPts, bPts, radius, numPoints);
+        assertEquals(result, true);
+    }
+
+    /**
      * Testing valid data
+     *
      * @result false
      */
     @Test
@@ -576,6 +791,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing single data point
+     *
      * @result false
      */
     @Test
@@ -589,6 +805,7 @@ public class LaunchInterceptorConditionsTest {
 
     /**
      * Testing two data points
+     *
      * @result false
      */
     @Test
@@ -613,13 +830,14 @@ public class LaunchInterceptorConditionsTest {
         double x3 = 1;
         double y3 = -0.3;
         double r = 1;
-        assertFalse(LaunchInterceptorConditions.helperCircle(x1, y1, x2, y2, x3, y3, r));
+        assertTrue(LaunchInterceptorConditions.helperCircle(x1, y1, x2, y2, x3, y3, r));
         x1 = -0.2;
         y1 = 0;
         x2 = 0;
         y2 = 0;
         x3 = 0.2;
         y3 = 0;
+        r =  0.1;
         assertFalse(LaunchInterceptorConditions.helperCircle(x1, y1, x2, y2, x3, y3, r));
     }
 
@@ -671,7 +889,9 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(LaunchInterceptorConditions.triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, 0.45), true);
     }
 
-    /** Should return false if epsilon is not a valid value */
+    /**
+     * Should return false if epsilon is not a valid value
+     */
     @Test
     void angleBetweenPointsEpsilonNotValid() {
         double[] x = new double[]{-2, 0, 2};
@@ -680,7 +900,9 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(false, result);
     }
 
-    /** Should return false if the angle between the points is not valid */
+    /**
+     * Should return false if the angle between the points is not valid
+     */
     @Test
     void angleBetweenAngleNoValid() {
         double[] x = new double[]{0, 0, 2};
@@ -689,7 +911,9 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(false, result);
     }
 
-    /** Should return false as the angle is within the epsilon range */
+    /**
+     * Should return false as the angle is within the epsilon range
+     */
     @Test
     void angleBetweenAngleWithinEpsilon() {
         double[] x = new double[]{-1, 0, 1};
@@ -698,7 +922,9 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(false, result);
     }
 
-    /** Should return true as the angle is outside the epsilon range */
+    /**
+     * Should return true as the angle is outside the epsilon range
+     */
     @Test
     void angleBetweenAngleOutsideEpsilon() {
         double[] x = new double[]{-1, 0, 1};
@@ -706,7 +932,5 @@ public class LaunchInterceptorConditionsTest {
         boolean result = LaunchInterceptorConditions.angleBetweenPointsOutsideEpsilon(x[0], y[0], x[1], y[1], x[2], y[2], Math.PI / 3);
         assertEquals(true, result);
     }
-
 }
-
 
