@@ -86,4 +86,18 @@ public class PUM {
 
         return pumMatrix[i][j];
     }
+
+    /**
+     * Accessor method for row length of PUM matrix
+     */
+    public int getRowLength() {
+        return pumMatrix.length;
+    }
+
+    /**
+     * Accessor method for column length of PUM matrix
+     */
+    public int getColLength() {
+        return pumMatrix[0].length;
+    }
 }

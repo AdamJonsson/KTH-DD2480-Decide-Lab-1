@@ -10,7 +10,9 @@
 package lab1;
 
 public class FUV {
-    // TODO: add commentand fix program
+    private boolean[] FUV;
+
+    // TODO: add comment and fix program
     /**
      *
      * @param PUV  
@@ -19,11 +21,35 @@ public class FUV {
      */
 
     public FUV(boolean[] PUV, PUM pumMatrix) {
+        FUV = new boolean[pumMatrix.getRowLength()];
 
+        // FUV[i] should be set to true iff all elements in PUM[i][] are true
+        for (int i = 0; i < pumMatrix.getRowLength(); i++) {
+            boolean allTrueRow = true;
+            for (int j = 0; j < pumMatrix.getColLength(); j++) {
+                if (i == j) continue;
+
+                if (!pumMatrix.get(i, j)) {
+                    allTrueRow = false;
+                }
+            }
+            if (allTrueRow) {
+                FUV[i] = true;
+            } else {
+                FUV[i] = false;
+            }
+        }
+
+        // FUV[i] should be set to true if PUV[i] is false, otherwise false (default)
+        for (int i = 0; i < PUV.length; i++) {
+            // FUV[i] should be set to true if PUV[i] is false
+            if (!PUV[i]) {
+                FUV[i] = true;
+            }
+        }
     }
 
-    public get(int i) {
-        return false;
+    public boolean get(int i) {
+        return FUV[i];
     }
-
 }

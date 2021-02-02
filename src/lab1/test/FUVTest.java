@@ -1,5 +1,7 @@
 package lab1.test;
 
+import lab1.FUV;
+import lab1.PUM;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,7 +27,7 @@ public class FUVTest {
 
     boolean[] puv = new boolean[]{true, false, true, true, true, true, true, true, true, true, true, true, true, true, true};
     boolean[] cmv = new boolean[]{false, true, true, true, false, false, false, false, false, false, false, false, false, false, false};
-    PUM pum = new PUM(cmv, lcm);
+    PUM pum = new PUM(cmv, lcmInstructionsExample);
 
     /**
      * Checking that the first example given by the examples
