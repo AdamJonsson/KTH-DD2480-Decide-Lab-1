@@ -498,21 +498,6 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(result, true);
     }
 
-    /**
-     * Should return true since the distance is greater than 0
-     *
-     * @result true
-     */
-    @Test
-    void co6_3() {
-        double[] xList = new double[]{1, 1, 3};
-        double[] yList = new double[]{1, 3, 2};
-        int nPts = 3;
-        double dist = 0;
-        int numPoints = 3;
-        boolean result = LaunchInterceptorConditions.condition6(xList, yList, nPts, dist, numPoints);
-        assertEquals(result, true);
-    }
 
     /**
      * Should return true since the end and start point is the same and distance to the middle point is >1
@@ -948,5 +933,4 @@ public class LaunchInterceptorConditionsTest {
         assertEquals(true, result);
     }
 }
-
 
