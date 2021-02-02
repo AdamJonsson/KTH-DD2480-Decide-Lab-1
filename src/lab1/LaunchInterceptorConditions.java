@@ -88,35 +88,43 @@ public class LaunchInterceptorConditions {
     public static boolean condition9(double[] x, double[] y, int c_pts, int d_pts, double epsilon, int numPoints) {
         if (numPoints < 5) return false;
 
-        int firstIndex = 0;
-        int vertexIndex = c_pts + 1;
-        int lastIndex = vertexIndex + d_pts + 1;
+        boolean ret = true;
 
-        if (x[firstIndex] == x[vertexIndex] && y[firstIndex] == y[vertexIndex]) {
-            return false;
-        } else if (x[lastIndex] == x[vertexIndex] && y[lastIndex] == y[vertexIndex]) {
-            return false;
+        for (int i = 0; i < (numPoints - c_pts - d_pts - 2); i++) {
+            int firstIndex = i;
+            int vertexIndex = i + c_pts + 1;
+            int lastIndex = vertexIndex + d_pts + 1;
+
+            if (x[firstIndex] == x[vertexIndex] && y[firstIndex] == y[vertexIndex]) {
+                ret = false;
+            } else if (x[lastIndex] == x[vertexIndex] && y[lastIndex] == y[vertexIndex]) {
+                ret = false;
+            }
+
+            if (!angleBetweenPointsOutsideEpsilon(x[firstIndex], y[firstIndex], x[vertexIndex], y[vertexIndex], x[lastIndex], y[lastIndex], epsilon)) {
+                ret = false;
+            }
         }
 
-        if (!angleBetweenPointsOutsideEpsilon(x[firstIndex], y[firstIndex], x[vertexIndex], y[vertexIndex], x[lastIndex], y[lastIndex], epsilon)) {
-            return false;
-        }
-
-        return true;
+        return ret;
     }
 
     public static boolean condition10(double[] x, double[] y, int e_pts, int f_pts, double area1, int numPoints) {
         if (numPoints < 5) return false;
 
-        int firstIndex = 0;
-        int vertexIndex = e_pts + 1;
-        int lastIndex = vertexIndex + f_pts + 1;
+        boolean ret = true;
 
-        if (!triangleAreaIsGreaterThanArea(x[firstIndex], y[firstIndex], x[vertexIndex], y[vertexIndex], x[lastIndex], y[lastIndex], area1)) {
-            return false;
+        for (int i = 0; i < (numPoints - e_pts - f_pts - 2); i++) {
+            int firstIndex = i;
+            int vertexIndex = i + e_pts + 1;
+            int lastIndex = vertexIndex + f_pts + 1;
+
+            if (!triangleAreaIsGreaterThanArea(x[firstIndex], y[firstIndex], x[vertexIndex], y[vertexIndex], x[lastIndex], y[lastIndex], area1)) {
+                ret = false;
+            }
         }
 
-        return true;
+        return ret;
     }
 
     public static boolean condition11(double[] x, double[] y, int g_pts, int numPoints) {
