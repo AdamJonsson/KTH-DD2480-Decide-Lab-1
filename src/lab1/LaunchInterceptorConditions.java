@@ -106,7 +106,17 @@ public class LaunchInterceptorConditions {
     }
 
     public static boolean condition10(double[] x, double[] y, int e_pts, int f_pts, double area1, int numPoints) {
-        return false;
+        if (numPoints < 5) return false;
+
+        int firstIndex = 0;
+        int vertexIndex = e_pts + 1;
+        int lastIndex = vertexIndex + f_pts + 1;
+
+        if (!triangleAreaIsGreaterThanArea(x[firstIndex], y[firstIndex], x[vertexIndex], y[vertexIndex], x[lastIndex], y[lastIndex], area1)) {
+            return false;
+        }
+
+        return true;
     }
 
     public static boolean condition11(double[] x, double[] y, int g_pts, int numPoints) {
