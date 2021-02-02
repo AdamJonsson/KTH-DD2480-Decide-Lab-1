@@ -320,16 +320,134 @@ public class LaunchInterceptorConditions {
         return false;
     }
 
-    public static boolean condition12() {
-        return false;
+    /**
+     * Returns true if there exists at least one set of K PTS consecutive data points that are a distance of more than length1 apart
+     * and another set of data that are a distance of more than length2 apart
+     * 
+     * @param x
+     * @param y
+     * @param length1
+     * @param length2
+     * @param kPts
+     * @return True of false
+     */
+
+    public static boolean condition12(double[] x, double[] y, double length1, double length2, int kPts, int numPoints) {
+        boolean length1Fulfilled = false;
+        boolean length2Fulfilled = false;
+        // We need kPts intervening points: if kpts = 2, this means we need two points between (x1, y1) and (x2, y2)
+        // meaning we need to set the separation to kPts + 1
+        kPts += 1;
+        if (x.length < kPts || y.length < kPts || numPoints < 3) {
+            return false;
+        }
+
+        for (int i = 0; i < x.length - kPts; i += 1) {
+            double x1 = x[i];
+            double y1 = y[i];
+
+            double x2 = x[i + kPts];
+            double y2 = y[i + kPts];
+
+            if (helperDistance(x1, y1, x2, y2, length1)) {
+                length1Fulfilled = true;
+            }
+
+            if (!helperDistance(x1, y1, x2, y2, length2)) {
+                length2Fulfilled = true;
+            }
+        }
+        return (length1Fulfilled && length2Fulfilled);
     }
 
-    public static boolean condition13() {
-        return false;
+    /**
+     * Returns true if there exists at least one set of three data points, 
+     * separated by exactly A PTS and B PTS consecutive intervening points, 
+     * respectively, that cannot be contained within or on a circle of radius RADIUS1 and RADIUS2.
+     * 
+     * @param x
+     * @param y
+     * @param length1
+     * @param length2
+     * @param aPts
+     * @param bPts
+     * @return True of false
+     */
+
+    public static boolean condition13(double[] x, double[] y, int aPts, int bPts, double radius1, double radius2, int numPoints) {
+        boolean radius1Fulfilled = false;
+        boolean radius2Fulfilled = false;
+
+        aPts += 1;
+        bPts += 1;
+        if (x.length < aPts + bPts || y.length < aPts + bPts || numPoints < 5) {
+            return false;
+        }
+
+        for (int i = 0; i < x.length - aPts - bPts; i += 1) {
+            double x1 = x[i];
+            double y1 = y[i];
+
+            double x2 = x[i + aPts];
+            double y2 = y[i + aPts];
+
+            double x3 = x[i + aPts + bPts];
+            double y3 = y[i + aPts + bPts];
+
+            if (!helperCircle(x1, y1, x2, y2, x3, y3, radius1)) {
+                radius1Fulfilled = true;
+            }
+
+            if (helperCircle(x1, y1, x2, y2, x3, y3, radius2)) {
+                radius2Fulfilled = true;
+            }
+        }
+        return (radius1Fulfilled && radius2Fulfilled);
     }
 
-    public static boolean condition14() {
-        return false;
+    /**
+     * Returns true if there exists at least one set of three data points, 
+     * separated by exactly E PTS and F PTS consecutive intervening points, 
+     * respectively, that have an area greater than AREA1 and AREA2
+     * 
+     * @param x
+     * @param y
+     * @param area1
+     * @param area2
+     * @param ePts
+     * @param fPts
+     * @return True of false
+     */
+
+    public static boolean condition14(double[] x, double[] y, int ePts, int fPts, double area1, double area2, int numPoints) {
+        boolean triangle1Fulfilled = false;
+        boolean triangle2Fulfilled = false;
+
+        ePts += 1;
+        fPts += 1;
+        if (x.length < ePts + fPts || y.length < ePts + fPts || numPoints < 5) {
+            return false;
+        }
+
+        for (int i = 0; i < x.length - ePts - fPts; i += 1) {
+            double x1 = x[i];
+            double y1 = y[i];
+
+            double x2 = x[i + ePts];
+            double y2 = y[i + ePts];
+
+            double x3 = x[i + ePts + fPts];
+            double y3 = y[i + ePts + fPts];
+
+            if (triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, area1)) {
+                triangle1Fulfilled = true;
+            }
+
+            if (!triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, area2)) {
+                triangle2Fulfilled = true;
+            }
+        }
+        return (triangle1Fulfilled && triangle2Fulfilled);
     }
 
     /**
