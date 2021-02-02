@@ -10,7 +10,9 @@ The main procedure for implementing the launch interceptor program was to mainly
 
 More over, every merge into main needs to have an approved review. A set of rules was set in the repository to prevent pushes directly into main and merges when no approved review existed. Squash and merge was used for every pull-request to prevent unnecessary commits in the main branch. As a result, commits such as "Fixed typo" or "Added comment" is not visible and will minimize showing irrelevant changes in the main branch. The information is however not lost, as it is still visible under the given pull-request.
 
-## "Remarkable" achievement
+## Examination
+
+### "Remarkable" achievement
 As was mentioned above, our group decided on doing test-driven development. The implementation of a feature was made in two steps:
 
 1. One author creates the tests that they expect to pass
