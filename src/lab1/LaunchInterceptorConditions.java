@@ -88,25 +88,17 @@ public class LaunchInterceptorConditions {
     public static boolean condition9(double[] x, double[] y, int c_pts, int d_pts, double epsilon, int numPoints) {
         if (numPoints < 5) return false;
 
-        boolean ret = true;
-
         for (int i = 0; i < (numPoints - c_pts - d_pts - 2); i++) {
             int firstIndex = i;
             int vertexIndex = i + c_pts + 1;
             int lastIndex = vertexIndex + d_pts + 1;
 
-            if (x[firstIndex] == x[vertexIndex] && y[firstIndex] == y[vertexIndex]) {
-                ret = false;
-            } else if (x[lastIndex] == x[vertexIndex] && y[lastIndex] == y[vertexIndex]) {
-                ret = false;
-            }
-
-            if (!angleBetweenPointsOutsideEpsilon(x[firstIndex], y[firstIndex], x[vertexIndex], y[vertexIndex], x[lastIndex], y[lastIndex], epsilon)) {
-                ret = false;
+            if (angleBetweenPointsOutsideEpsilon(x[firstIndex], y[firstIndex], x[vertexIndex], y[vertexIndex], x[lastIndex], y[lastIndex], epsilon)) {
+                return true;
             }
         }
 
-        return ret;
+        return false;
     }
 
     public static boolean condition10(double[] x, double[] y, int e_pts, int f_pts, double area1, int numPoints) {
