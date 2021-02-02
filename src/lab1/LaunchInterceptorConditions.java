@@ -267,7 +267,7 @@ public class LaunchInterceptorConditions {
             double x2 = x[i + kPts];
             double y2 = y[i + kPts];
 
-            if (!helperDistance(x1, y1, x2, y2, length1)) {
+            if (helperDistance(x1, y1, x2, y2, length1)) {
                 length1Fulfilled = true;
             }
 
@@ -316,7 +316,7 @@ public class LaunchInterceptorConditions {
                 radius1Fulfilled = true;
             }
 
-            if (!helperCircle(x1, y1, x2, y2, x3, y3, radius2)) {
+            if (helperCircle(x1, y1, x2, y2, x3, y3, radius2)) {
                 radius2Fulfilled = true;
             }
         }
@@ -357,7 +357,7 @@ public class LaunchInterceptorConditions {
             double x3 = x[i + ePts + fPts];
             double y3 = y[i + ePts + fPts];
 
-            if (!triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, area1)) {
+            if (triangleAreaIsGreaterThanArea(x1, y1, x2, y2, x3, y3, area1)) {
                 triangle1Fulfilled = true;
             }
 
