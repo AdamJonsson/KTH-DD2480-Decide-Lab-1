@@ -30,7 +30,7 @@ public class InputDataProvider {
             new boolean[] {true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
             0.99,   // LENGTH1
             2,      // LENGTH2
-            1.01,   // RADIUS1
+            0.99,   // RADIUS1
             0.01,      // RADIUS2
             0,      // EPSILON
             0.49,   // AREA1
