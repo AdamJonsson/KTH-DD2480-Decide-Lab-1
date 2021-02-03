@@ -28,7 +28,7 @@ A class for handling all the PARAMETERS and collects them in a class
 * `LaunchInterceptorConditions.java`
 * `tests/LaunchInterceptorConditionsTest.java`
 
-A class that implements 14 conditions that have been calculated from the `InputData`-input.
+A class that implements 15 conditions that have been calculated from the `InputData`-input.
 
 * `LaunchInterceptorProgram.java`
 * `tests/LaunchInterceptorProgramTest.java`
@@ -50,7 +50,7 @@ More over, every merge into main needs to have an approved review. A set of rule
 ### "Remarkable" achievement
 
 #### Test-driven development
-As was mentioned above, our group decided on doing test-driven development. The implementation of a feature was made in two steps:
+As was mentioned above, our group decided on doing test-driven development. The implementation of a feature was made in three steps:
 
 1. One author creates the tests that they expect to pass.
 2. Another author creates the feature trying to pass the tests.
