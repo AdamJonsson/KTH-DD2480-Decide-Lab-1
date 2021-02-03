@@ -60,9 +60,16 @@ The main procedure for implementing the launch interceptor program was to mainly
 
 More over, every merge into main needs to have an approved review. A set of rules was set in the repository to prevent pushes directly into main and merges when no approved review existed. Squash and merge was used for every pull-request to prevent unnecessary commits in the main branch. As a result, commits such as "Fixed typo" or "Added comment" is not visible and will minimize showing irrelevant changes in the main branch. The information is however not lost, as it is still visible under the given pull-request.
 
+## Naming conventions
+* All issues have labels, which should mark how the issue is related to the project. An issue also have an id in the form `#xx`
+* All branches are lexigraphically linked to issues by having names such as `issue/xx-add-feature`
+* A PR adds an automatic link between the issue and the PR by having a commit message in the form `Fixes #xx`
+
 ## Examination
 
 ### "Remarkable" achievement
+
+#### Test-driven development
 As was mentioned above, our group decided on doing test-driven development. The implementation of a feature was made in two steps:
 
 1. One author creates the tests that they expect to pass
@@ -73,7 +80,7 @@ By doing this way, we ensure that
 1. There are valid tests that the feature must pass before the feature is being created
 2. The project members know more about several parts of the code, rather than only knowing the code they wrote themselves
 
-We think this is of `remarkable`-quality, since we ensured that the system would be working well while integrating the features, as well as allow project members to be more familiar with more parts of the code infrastructure. By doing this, we reduce the risk of having something going wrong throughout the development process.
+We think this is of `remarkable`-quality, since we ensured that the system would be working well while integrating the features, as well as allow project members to be more familiar with more parts of the code infrastructure. By doing this, we reduce the risk of having something going wrong throughout the development process. 
 
 
 ### Note to examinator
