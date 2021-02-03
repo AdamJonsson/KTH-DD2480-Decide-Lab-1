@@ -4,12 +4,12 @@ This repository contains the code for the first lab in the course DD2480 at KTH.
 
 The program is a launch interceptor program (LIC) that determines if a interceptor should be launched based upon input radar tracking information. More info about how the launch interceptor program works can be found here: [Launch Interceptor Program - Requirements Specification](./Launch%20Interceptor%20Program%20-%20Requirements%20Specification.pdf)
 
-The main mechanism of the LIC is in the `DECIDE()`-function, which generates a boolean signal, `true` or  `false`, based on input data. The output of `DECIDE()` whether the LIC interceptor should launched or not.
+The main mechanism of the LIC is the `DECIDE()`-function. The function will output a launch decision, `"YES"` or `"NO"`, based on the input data.
 
-The user inputs the data in the form given in `InputDataProvider.java`. The program `DECIDE()` then generates the signal based on this input. The `DECIDE()`-function makes calculates with the input in several steps before arriving to the result.
 
 ### How to use
-Currently, the program do not take any external inputs. To test your own set of inputs, you can add them in the `InputDataProvider.java` and test them by calling the decide function inside a test.
+Decide takes one argument, `InputData` object, and it outputs its decision to the standard output Either a `"YES"` or `"NO"`.
+Thus, the user must create the `InputDate` object by providing the input date to its constructor and then call `DECIDE()` with the object as an argument.
 
 ### Code structure
 * `FUV.java`
@@ -53,10 +53,12 @@ More over, every merge into main needs to have an approved review. A set of rule
 #### Test-driven development
 As was mentioned above, our group decided on doing test-driven development. The implementation of a feature was made in two steps:
 
-1. One author creates the tests that they expect to pass
-2. Another author creates the feature trying to pass the tests
+1. One author creates the tests that they expect to pass.
+2. Another author creates the feature trying to pass the tests.
+3. And a third author did the reviewing of the code.
 
-By doing this way, we ensure that 
+In this approach we were choosing the team members that are best in the given area to write the tests, which will insure a higher quality of code.
+Additionally, with this approach we get advantages like ensuring that:
 
 1. There are valid tests that the feature must pass before the feature is being created
 2. The project members know more about several parts of the code, rather than only knowing the code they wrote themselves
@@ -72,4 +74,4 @@ We have
 * Required at least 1 code review for each PR
 
 ### Note to examinator
-One of us accidentally made a normal merge to a pull request and not a squash and merge, as we had agreed to in the group. We therefore ask the examinor to not consider these commits in the `main`-branch as examinatory, as it is very difficult to revert the git history. We chose to keep it as it is as to not confuse ourselves or the examinator.
+One of us accidentally made a normal merge to a pull request and not a squash and merge, as we had agreed to in the group. We therefore ask the examinor to not consider these commits in the `issue/12-lic-9-11`-branch as examinatory, as it is very difficult to revert the git history. We chose to keep it as it is as to not confuse ourselves or the examinator.
