@@ -11,6 +11,37 @@ The user inputs the data in the form given in `InputDataProvider.java`. The prog
 ### How to use
 Currently, the program do not take any external inputs. To test your own set of inputs, you can add them in the `InputDataProvider.java` and test them by calling the decide function inside a test.
 
+### Code structure
+* `FUV.java`
+* `tests/FUVTest.java`
+
+Creates the Final Unlocking Vector FUV, a boolean array that is used in the final step.
+
+* `PUM.java`
+* `tests/PUMTest.java`
+
+Creates the Preliminary Unlocking Matrix PUM, a boolean matrix that is used in an intermediate step.
+
+* `InputData.java`
+
+A class for handling all the PARAMETERS and collects them in a class
+
+* `LaunchInterceptorConditions.java`
+* `tests/LaunchInterceptorConditionsTest.java`
+
+A class that implements 14 conditions that have been calculated from the `InputData`-input.
+
+* `LaunchInterceptorProgram.java`
+* `tests/LaunchInterceptorProgramTest.java`
+
+A class that define the `DECIDE()`-function, which will return a boolean signal based on the `InputData`-signal.
+
+
+
+
+
+
+
 ### Data description
 
 #### INPUT
