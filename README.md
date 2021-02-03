@@ -8,9 +8,6 @@ The main mechanism of the LIC is in the `DECIDE()`-function, which generates a b
 
 The user inputs the data in the form given in `InputDataProvider.java`. The program `DECIDE()` then generates the signal based on this input. The `DECIDE()`-function makes calculates with the input in several steps before arriving to the result.
 
-### How it works
-The class `LaunchInterceptorProgram.java` takes input in the form of `InputData.java` and generates a PUM with `PUM.java`, which calls `LaunchInterceptorConditions.java` to create its output. Then, the FUV is created from the PUM and other input from `InputData.java`, using `FUV.java`. The boolean signal is based on the resulting FUV.
-
 ### How to use
 Currently, the program do not take any external inputs. To test your own set of inputs, you can add them in the `InputDataProvider.java` and test them by calling the decide function inside a test.
 
@@ -38,22 +35,6 @@ A class that implements 14 conditions that have been calculated from the `InputD
 * `tests/LaunchInterceptorProgramTest.java`
 
 A class that define the `DECIDE()`-function, which will return a boolean signal based on the `InputData`-signal.
-
-
-### Data description
-
-#### INPUT
-* `NUMPOINTS` An integer, describing the number of planar data points.
-* `POINTS` Two double vectors, which together represent the coordinates of data points.
-* `PARAMETERS` A class/struct holding various parameters required for calculating the LIC.
-* `LCM` An integer matrix, representing the Logical Connector Matrix. It is used to calculate the `PUM`.
-* `PUV` A boolean vector, representing the Preliminary Unlocking Vector. It is used to calculate `PUM`.
-
-#### OUTPUT
-* `LAUNCH` Final launch / no launch decision encoded as ”YES”, ”NO” on the standard output. In addition, the following intermediate results are computed.
-* `CMV` Conditions Met Vector.
-* `PUM` Preliminary Unlocking Matrix.
-* `FUV` Final Unlocking Vector.
 
 ## Statement of contributions
 The main procedure for implementing the launch interceptor program was to mainly use the Black-box testing method. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One of the two group members created tests for the given feature first, then the other group member wrote the code for the feature. The benefits of using this method was that at least two members needed to understand the problem, thus minimizing the risk of misconception about the problem.
