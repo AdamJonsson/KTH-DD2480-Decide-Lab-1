@@ -18,7 +18,7 @@ More over, every merge into main needs to have an approved review. A set of rule
 * **Adam Jonsson**:
 * **Hovig Manjikian**: Made the tests for LIC 3-5 functions, and for the PUM class. Made the solution for LIC 6-8, and for the Decide function. Reviewed the LunchInterceptorProgram class. Contributed to the documentation.
 * **Isak Vilhelmsson**:
-* **Lara Rostami**:
+* **Lara Rostami**: Created tests for condition 0-2 in `LaunchInterceptorProgram.java`, created tests for `FUV.java`, implemented condition 12-14 in `LaunchInterceptorProgram.java`, wrote documentation in `README.md`, reviewed PR:s, created issues
 * **Tony Le**:
 
 ## Naming conventions
