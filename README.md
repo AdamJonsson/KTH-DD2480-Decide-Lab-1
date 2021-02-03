@@ -72,5 +72,7 @@ We have
 * Kept a squash-and-merge merging strategy
 * Required at least 1 code review for each PR
 
+We also believe this is of `remarkable`-quality, since this makes it much easier for the group to view what other people are doing in the project as well as prevent erroneus code to be pushed te be pushed to the `main`-branch, which could be disastrous in a deployed system.
+
 ### Note to examinator
 One of us accidentally made a normal merge to a pull request and not a squash and merge, as we had agreed to in the group. We therefore ask the examinor to not consider these commits in the `issue/12-lic-9-11`-branch as examinatory, as it is very difficult to revert the git history. We chose to keep it as it is as to not confuse ourselves or the examinator.
