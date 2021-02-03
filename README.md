@@ -11,9 +11,15 @@ Decide takes one argument, `InputData` object, and it outputs its decision to th
 Thus, the user must create the `InputDate` object by providing the input date to its constructor and then call `DECIDE()` with the object as an argument.
 
 ## Statement of contributions
-The main procedure for implementing the launch interceptor program was to mainly use the Black-box testing method. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One of the two group members created tests for the given feature first, then the other group member wrote the code for the feature. The benefits of using this method was that at least two members needed to understand the problem, thus minimizing the risk of misconception about the problem.
+The main procedure for implementing the launch interceptor program was to mainly use test driven programming by first implementing black-box tests and then developing. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One for creating the tests, another for writing the solution.
 
 More over, every merge into main needs to have an approved review. A set of rules was set in the repository to prevent pushes directly into main and merges when no approved review existed. Squash and merge was used for every pull-request to prevent unnecessary commits in the main branch. As a result, commits such as "Fixed typo" or "Added comment" is not visible and will minimize showing irrelevant changes in the main branch. The information is however not lost, as it is still visible under the given pull-request.
+### Contributions of each member
+* **Adam Jonsson**:
+* **Hovig Manjikian**:
+* **Isak Vilhelmsson**:
+* **Lara Rostami**:
+* **Tony Le**:
 
 ## Naming conventions
 * All issues have labels, which should mark how the issue is related to the project. An issue also have an id in the form `#xx`
