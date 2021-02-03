@@ -205,7 +205,7 @@ public class LaunchInterceptorConditions {
                 }
 
                 // Check if point is in quadrant 3
-                else if (xPos < 0 && yPos < 0) {
+                else if (xPos <= 0 && yPos < 0) {
                     pointsExistInQuadrant[2] = true;
                 }
 
