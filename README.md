@@ -82,6 +82,13 @@ By doing this way, we ensure that
 
 We think this is of `remarkable`-quality, since we ensured that the system would be working well while integrating the features, as well as allow project members to be more familiar with more parts of the code infrastructure. By doing this, we reduce the risk of having something going wrong throughout the development process. 
 
+#### Consistent github workflow
+We have
+* Continuously linked commits to issues
+* Kept a naming convention in our branches that link to issues of the form `issue/xx-add-feature`
+* Prevented any direct push to main
+* Kept a squash-and-merge merging strategy
+* Required at least 1 code review for each PR
 
 ### Note to examinator
 One of us accidentally made a normal merge to a pull request and not a squash and merge, as we had agreed to in the group. We therefore ask the examinor to not consider these commits in the `main`-branch as examinatory, as it is very difficult to revert the git history. We chose to keep it as it is as to not confuse ourselves or the examinator.
