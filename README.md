@@ -6,7 +6,6 @@ The program is a launch interceptor program (LIC) that determines if a intercept
 
 The main mechanism of the LIC is the `DECIDE()`-function. The function will output a launch decision, `"YES"` or `"NO"`, based on the input data.
 
-
 ### How to use
 Decide takes one argument, `InputData` object, and it outputs its decision to the standard output Either a `"YES"` or `"NO"`.
 Thus, the user must create the `InputDate` object by providing the input date to its constructor and then call `DECIDE()` with the object as an argument.
