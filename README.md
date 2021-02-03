@@ -16,7 +16,7 @@ The main procedure for implementing the launch interceptor program was to mainly
 More over, every merge into main needs to have an approved review. A set of rules was set in the repository to prevent pushes directly into main and merges when no approved review existed. Squash and merge was used for every pull-request to prevent unnecessary commits in the main branch. As a result, commits such as "Fixed typo" or "Added comment" is not visible and will minimize showing irrelevant changes in the main branch. The information is however not lost, as it is still visible under the given pull-request.
 ### Contributions of each member
 * **Adam Jonsson**:
-* **Hovig Manjikian**:
+* **Hovig Manjikian**: Made the tests for LIC 3-5 functions, and for the PUM class. Made the solution for LIC 6-8, and for the Decide function. Reviewed the LunchInterceptorProgram class. Contributed to the documentation.
 * **Isak Vilhelmsson**:
 * **Lara Rostami**:
 * **Tony Le**:
