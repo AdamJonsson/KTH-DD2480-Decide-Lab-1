@@ -22,14 +22,14 @@ public class LaunchInterceptorProgramTest {
         // Condition 0: True because LENGTH1 = 0.99
         // Condition 1: True because RADIUS1 = 1.01
         // Condition 2: True because EPSILON = PI/2 - 0.01
-        // Condition 3: True because AREA1 = 0.99
+        // Condition 3: True because AREA1 = 0.49
         // Condition 4: True because Q_PTS = 5 and QUADS = 2
         // Condition 5: True because (0, 0), (1, 0) consecutive points exist
         // Condition 6: True because DIST = 0.99 and N_PTS = 5
         // Condition 7: True because LENGTH1 = 0.99 and K_PTS = 1
         // Condition 8: False because RADIUS1 = 1.01 and A_PTS = B_PTS = 1
         // Condition 9: True because EPSILON = PI/2 -0.01 and C_PTS = D_PTS = 1
-        // Condition 10: False because AREA1 = 0.99 and E_PTS = F_PTS = 1
+        // Condition 10: True because AREA1 = 0.49 and E_PTS = F_PTS = 1
         // Condition 11: True because G_PTS = 1
         // Condition 12: True because LENGTH1 = 0.99 and LENGTH2 = 2 and K_PTS = 1
         // Condition 13: False, see condition 8
