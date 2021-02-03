@@ -8,8 +8,8 @@ import lab1.InputData;
 public class InputDataProvider {
     public static InputData  getInputDataWhereManyConditionsMet() {
         return new InputData(
-            new double[]{0, 1, -1, 0, -1},
-            new double[]{0, 0,  0, 1,  0},
+            new double[]{0, 1, -1, 0, 0},
+            new double[]{0, 0,  0, 1,  -1},
             new int[][]{
                 {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0},
                 {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0},
@@ -31,11 +31,11 @@ public class InputDataProvider {
             0.99,   // LENGTH1
             2,      // LENGTH2
             1.01,   // RADIUS1
-            0,      // RADIUS2
+            0.01,      // RADIUS2
             0,      // EPSILON
             0.49,   // AREA1
             0,      // AREA2
-            3,      // QUADS
+            2,      // QUADS
             0.99,   // DIST
             1,      // A_PTS
             1,      // B_PTS
