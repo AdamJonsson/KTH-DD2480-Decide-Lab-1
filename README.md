@@ -10,31 +10,6 @@ The main mechanism of the LIC is the `DECIDE()`-function. The function will outp
 Decide takes one argument, `InputData` object, and it outputs its decision to the standard output Either a `"YES"` or `"NO"`.
 Thus, the user must create the `InputDate` object by providing the input date to its constructor and then call `DECIDE()` with the object as an argument.
 
-### Code structure
-* `FUV.java`
-* `tests/FUVTest.java`
-
-Creates the Final Unlocking Vector FUV, a boolean array that is used in the final step.
-
-* `PUM.java`
-* `tests/PUMTest.java`
-
-Creates the Preliminary Unlocking Matrix PUM, a boolean matrix that is used in an intermediate step.
-
-* `InputData.java`
-
-A class for handling all the PARAMETERS and collects them in a class
-
-* `LaunchInterceptorConditions.java`
-* `tests/LaunchInterceptorConditionsTest.java`
-
-A class that implements 15 conditions that have been calculated from the `InputData`-input.
-
-* `LaunchInterceptorProgram.java`
-* `tests/LaunchInterceptorProgramTest.java`
-
-A class that define the `DECIDE()`-function, which will return a boolean signal based on the `InputData`-signal.
-
 ## Statement of contributions
 The main procedure for implementing the launch interceptor program was to mainly use the Black-box testing method. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One of the two group members created tests for the given feature first, then the other group member wrote the code for the feature. The benefits of using this method was that at least two members needed to understand the problem, thus minimizing the risk of misconception about the problem.
 
