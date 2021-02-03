@@ -151,7 +151,7 @@ public class LaunchInterceptorConditionsTest {
         double[] yList = new double[]{};
         double radius1 = 20;
         boolean result = LaunchInterceptorConditions.condition1(xList, yList, radius1);
-        assertEquals(result, false);
+        assertFalse(result);
     }
 
     /**
