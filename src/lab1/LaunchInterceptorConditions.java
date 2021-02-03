@@ -54,7 +54,7 @@ public class LaunchInterceptorConditions {
         if (a > 2 * r || b > 2 * r || c > 2 * r) return false;
         double angle1 = Math.acos((a * a + c * c - b * b) / (2 * a * c));
 
-        if (angle1 == 0 || angle1 == Math.PI) { // When the three points are one a straight line
+        if (Math.abs(angle1) < 0.00001 || Math.abs(angle1 - Math.PI) < 0.000001) { // When the three points are one a straight line
             return (a <= 2 * r && b <= 2 * r && c <= 2 * r);
         } else {
             double angleCenter = Math.acos((2 * r * r - b * b) / (2 * r * r));
@@ -113,15 +113,18 @@ public class LaunchInterceptorConditions {
      * within or on a circle of radius RADIUS1.
      */
     public static boolean condition1(double[] xList, double[] yList, double radius1) {
+        if (xList.length < 3)
+            return false;
+
         if (xList.length != yList.length || radius1 < 0)
             return false;
 
         for (int i = 0; i < xList.length - 2; i++) {
             boolean result = helperCircle(xList[i], yList[i], xList[i + 1], yList[i + 1], xList[i + 2], yList[i + 2], radius1);
             if (result)
-                return true;
+                return false;
         }
-        return false;
+        return true;
     }
 
     /**
@@ -172,7 +175,8 @@ public class LaunchInterceptorConditions {
     }
 
     /**
-     * Returns true if there exists at least one set of Q PTS consecutive data points that lie in more than QUADS quadrants
+     * Returns true if there exists at least one set of Q PTS consecutive data points that lie in more 
+     * than QUADS quadrants
      *
      * @param x
      * @param y
