@@ -8,6 +8,9 @@ The main mechanism of the LIC is in the `DECIDE()`-function, which generates a b
 
 The user inputs the data in the form given in `InputDataProvider.java`. The program `DECIDE()` then generates the signal based on this input. The `DECIDE()`-function makes calculates with the input in several steps before arriving to the result.
 
+### How it works
+The class `LaunchInterceptorProgram.java` takes input in the form of `InputData.java` and generates a PUM with `PUM.java`, which calls `LaunchInterceptorConditions.java` to create its output. Then, the FUV is created from the PUM and other input from `InputData.java`, using `FUV.java`. The boolean signal is based on the resulting FUV.
+
 ### How to use
 Currently, the program do not take any external inputs. To test your own set of inputs, you can add them in the `InputDataProvider.java` and test them by calling the decide function inside a test.
 
@@ -35,11 +38,6 @@ A class that implements 14 conditions that have been calculated from the `InputD
 * `tests/LaunchInterceptorProgramTest.java`
 
 A class that define the `DECIDE()`-function, which will return a boolean signal based on the `InputData`-signal.
-
-
-
-
-
 
 
 ### Data description
