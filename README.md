@@ -19,7 +19,7 @@ More over, every merge into main needs to have an approved review. A set of rule
 * **Hovig Manjikian**: Made the tests for LIC 3-5 functions, and for the PUM class. Made the solution for LIC 6-8, and for the Decide function. Reviewed the LunchInterceptorProgram class. Contributed to the documentation. In total wrote about 1200 lines of code, made about 25 commit of which 3 are visible (the rest got squashed). 
 * **Isak Vilhelmsson**:
 * **Lara Rostami**: Created tests for condition 0-2 in `LaunchInterceptorProgram.java`, created tests for `FUV.java`, implemented condition 12-14 in `LaunchInterceptorProgram.java`, wrote documentation in `README.md`, reviewed PR:s, created issues
-* **Tony Le**:
+* **Tony Le**: Wrote the tests and implementation for LIC 9-12 in `LaunchInterceptorProgram.java`, and the implementation for the `FUV.java` class. Added roughly 350 lines of code total to the project.
 
 ## Naming conventions
 * All issues have labels, which should mark how the issue is related to the project. An issue also have an id in the form `#xx`
