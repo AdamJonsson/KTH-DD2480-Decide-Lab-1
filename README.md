@@ -7,9 +7,38 @@ The program is a launch interceptor program (LIC) that determines if a intercept
 The main mechanism of the LIC is the `DECIDE()`-function. The function will output a launch decision, `"YES"` or `"NO"`, based on the input data.
 
 
+### How it works
+The class `LaunchInterceptorProgram.java` takes input in the form of `InputData.java` and generates a PUM with `PUM.java`, which calls `LaunchInterceptorConditions.java` to create its output. Then, the FUV is created from the PUM and other input from `InputData.java`, using `FUV.java`. The boolean signal is based on the resulting FUV.
+
 ### How to use
 Decide takes one argument, `InputData` object, and it outputs its decision to the standard output Either a `"YES"` or `"NO"`.
 Thus, the user must create the `InputDate` object by providing the input date to its constructor and then call `DECIDE()` with the object as an argument.
+
+### Code structure
+* `FUV.java`
+* `tests/FUVTest.java`
+
+Creates the Final Unlocking Vector FUV, a boolean array that is used in the final step.
+
+* `PUM.java`
+* `tests/PUMTest.java`
+
+Creates the Preliminary Unlocking Matrix PUM, a boolean matrix that is used in an intermediate step.
+
+* `InputData.java`
+
+A class for handling all the PARAMETERS and collects them in a class
+
+* `LaunchInterceptorConditions.java`
+* `tests/LaunchInterceptorConditionsTest.java`
+
+A class that implements 14 conditions that have been calculated from the `InputData`-input.
+
+* `LaunchInterceptorProgram.java`
+* `tests/LaunchInterceptorProgramTest.java`
+
+A class that define the `DECIDE()`-function, which will return a boolean signal based on the `InputData`-signal.
+
 
 ### Data description
 
@@ -31,13 +60,17 @@ The main procedure for implementing the launch interceptor program was to mainly
 
 More over, every merge into main needs to have an approved review. A set of rules was set in the repository to prevent pushes directly into main and merges when no approved review existed. Squash and merge was used for every pull-request to prevent unnecessary commits in the main branch. As a result, commits such as "Fixed typo" or "Added comment" is not visible and will minimize showing irrelevant changes in the main branch. The information is however not lost, as it is still visible under the given pull-request.
 
+## Naming conventions
+* All issues have labels, which should mark how the issue is related to the project. An issue also have an id in the form `#xx`
+* All branches are lexigraphically linked to issues by having names such as `issue/xx-add-feature`
+* A PR adds an automatic link between the issue and the PR by having a commit message in the form `Fixes #xx`
+
 ## Examination
 
 ### "Remarkable" achievement
-All the commits (except the first 7 commits, which were for testing purposes) are linked to an issue describing a feature, a bug, or a documentation.
-Our approach was merge and squash, so that for each issue there will be a single commit on the main branch. however, one of the team members accidentally happened to do a merge with no squash on one of the pull requests, (kindly check the note at the end).
 
-Additionally, as was mentioned above, our group decided on doing test-driven development. The implementation of a feature was made in two steps:
+#### Test-driven development
+As was mentioned above, our group decided on doing test-driven development. The implementation of a feature was made in two steps:
 
 1. One author creates the tests that they expect to pass.
 2. Another author creates the feature trying to pass the tests.
@@ -49,8 +82,15 @@ Additionally, with this approach we get advantages like ensuring that:
 1. There are valid tests that the feature must pass before the feature is being created
 2. The project members know more about several parts of the code, rather than only knowing the code they wrote themselves
 
-We think this is of `remarkable`-quality, since we ensured that the system would be working well while integrating the features, as well as allow project members to be more familiar with more parts of the code infrastructure. By doing this, we reduce the risk of having something going wrong throughout the development process.
+We think this is of `remarkable`-quality, since we ensured that the system would be working well while integrating the features, as well as allow project members to be more familiar with more parts of the code infrastructure. By doing this, we reduce the risk of having something going wrong throughout the development process. 
 
+#### Consistent github workflow
+We have
+* Continuously linked commits to issues
+* Kept a naming convention in our branches that link to issues of the form `issue/xx-add-feature`
+* Prevented any direct push to main
+* Kept a squash-and-merge merging strategy
+* Required at least 1 code review for each PR
 
 ### Note to examinator
 One of us accidentally made a normal merge to a pull request and not a squash and merge, as we had agreed to in the group. We therefore ask the examinor to not consider these commits in the `issue/12-lic-9-11`-branch as examinatory, as it is very difficult to revert the git history. We chose to keep it as it is as to not confuse ourselves or the examinator.
