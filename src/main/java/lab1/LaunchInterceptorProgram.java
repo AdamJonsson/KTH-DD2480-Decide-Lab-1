@@ -24,11 +24,11 @@ public class LaunchInterceptorProgram {
         FUV fuvVector = new FUV(inputData.puv, pumMatrix);
         for (int i = 0; i < 15; i++) {
             if (!fuvVector.get(i)) {
-                System.out.print("NO");
+                System.out.println("NO");
                 return false;
             }
         }
-        System.out.print("YES");
+        System.out.println("YES");
         return true;
     }
 }
