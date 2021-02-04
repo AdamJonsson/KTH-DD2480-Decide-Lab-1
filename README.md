@@ -11,9 +11,15 @@ Decide takes one argument, `InputData` object, and it outputs its decision to th
 Thus, the user must create the `InputDate` object by providing the input date to its constructor and then call `DECIDE()` with the object as an argument.
 
 ## Statement of contributions
-The main procedure for implementing the launch interceptor program was to mainly use the Black-box testing method. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One of the two group members created tests for the given feature first, then the other group member wrote the code for the feature. The benefits of using this method was that at least two members needed to understand the problem, thus minimizing the risk of misconception about the problem.
+The main procedure for implementing the launch interceptor program was to mainly use test driven programming by first implementing black-box tests and then developing. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One for creating the tests, another for writing the solution.
 
 More over, every merge into main needs to have an approved review. A set of rules was set in the repository to prevent pushes directly into main and merges when no approved review existed. Squash and merge was used for every pull-request to prevent unnecessary commits in the main branch. As a result, commits such as "Fixed typo" or "Added comment" is not visible and will minimize showing irrelevant changes in the main branch. The information is however not lost, as it is still visible under the given pull-request.
+### Contributions of each member
+* **Adam Jonsson**: Made the tests for LIC 12-14 ([PR][PR-LIC-12-14]) and the top-level tests for the entire DECIDE program ([PR][PR-DECIDE]). Made the solution for the LIC 3-5 ([PR][PR-LIC-3-5]) and added helper function that checks the angle between three points ([PR][PR-Helper-Angle]). Also reviewed multiple PR:s and fix some minor bugs. In total wrote about 1000 lines of code.
+* **Hovig Manjikian**: Made the tests for LIC 3-5 ([PR][PR-LIC-3-5]) functions, and for the PUM class ([PR][PR-PUM-class]). Made the solution for LIC 6-8 ([PR][PR-LIC-6-8]), and for the Decide function ([PR][PR-DECIDE]). Reviewed the LunchInterceptorProgram class ([PR][PR-DECIDE]). Contributed to the documentation. In total wrote about 1200 lines of code, made about 25 commit of which 3 are visible (the rest got squashed). 
+* **Isak Vilhelmsson**: Made the tests for LIC 6-8 ([PR][PR-LIC-6-8]). Made the solution for LIC 0-2 ([PR][PR-LIC-0-2]). Implemented the PUM class ([PR][PR-PUM-class]). Reviewed these PRs: ([PR][PR-LIC-12-14]), ([PR][PR-Helper-Angle]), ([PR][PR-LIC-3-5]), ([PR][PR-Helper-Circle]), ([PR][PR-DECIDE]). Added about 350 lines of code to the project.
+* **Lara Rostami**: Created tests for condition 0-2 in `LaunchInterceptorProgram.java` ([PR][PR-LIC-0-2]), created tests for `FUV.java` ([PR][PR-FUV-class]), implemented condition 12-14 in `LaunchInterceptorProgram.java` ([PR][PR-LIC-12-14]), created the helper function for checking triangle area ([PR][PR-Helper-Triangle]), wrote documentation in `README.md` ([PR][PR-Documentation]), reviewed PR:s, created issues. Contributed to 3 visible commits to `main`-branch, the other commits are squashed. Added about 500 lines of code.
+* **Tony Le**: Wrote the tests and implementation for LIC 9-11 in `LaunchInterceptorProgram.java` ([PR][PR-LIC-9-11]), and the implementation for the `FUV.java` class ([PR][PR-FUV-class]). Added roughly 350 lines of code total to the project.
 
 ## Naming conventions
 * All issues have labels, which should mark how the issue is related to the project. An issue also have an id in the form `#xx`
@@ -51,3 +57,16 @@ We also believe this is of `remarkable`-quality, since this makes it much easier
 
 ### Note to examinator
 One of us accidentally made a normal merge to a pull request and not a squash and merge, as we had agreed to in the group. We therefore ask the examinor to not consider these commits in the `issue/12-lic-9-11`-branch as examinatory, as it is very difficult to revert the git history. We chose to keep it as it is as to not confuse ourselves or the examinator.
+
+[PR-LIC-12-14]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/14
+[PR-LIC-9-11]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/26
+[PR-LIC-6-8]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/23
+[PR-LIC-3-5]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/22
+[PR-LIC-0-2]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/15
+[PR-DECIDE]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/33
+[PR-Helper-Angle]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/20
+[PR-Helper-Circle]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/24
+[PR-Helper-Triangle]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/21
+[PR-FUV-class]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/38
+[PR-PUM-class]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/32
+[PR-Documentation]: https://github.com/AdamJonsson/KTH-DD2480-Decide-Lab-1/pull/35
