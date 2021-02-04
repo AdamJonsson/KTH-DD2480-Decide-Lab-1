@@ -6,9 +6,10 @@ The program is a launch interceptor program (LIC) that determines if a intercept
 
 The main mechanism of the LIC is the `DECIDE()`-function. The function will output a launch decision, `"YES"` or `"NO"`, based on the input data.
 
-### How to use
-Decide takes one argument, `InputData` object, and it outputs its decision to the standard output Either a `"YES"` or `"NO"`.
-Thus, the user must create the `InputDate` object by providing the input date to its constructor and then call `DECIDE()` with the object as an argument.
+### How to run the program
+The project uses Maven which needs to be installed in order to run this project. Instruction for installing it can be found here: [Installing Apache Maven](http://maven.apache.org/install.html).
+* To run the project, run `mvn exec:java` in this folder. You can change the input data in `src/main/java/lab1/Main.java` to test with different parameters.
+* To run the tests for the project, run `mvn test` in this folder. See the files in `src/test/java/lab1` for details about what is tested.
 
 ## Statement of contributions
 The main procedure for implementing the launch interceptor program was to mainly use test driven programming by first implementing black-box tests and then developing. That is, for every feature that needed to be implemented, an issue was created and assigned to two group members. One for creating the tests, another for writing the solution.
