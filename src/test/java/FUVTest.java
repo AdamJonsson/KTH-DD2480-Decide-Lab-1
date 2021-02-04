@@ -1,5 +1,3 @@
-package lab1.test;
-
 import lab1.FUV;
 import lab1.PUM;
 import org.junit.jupiter.api.Test;

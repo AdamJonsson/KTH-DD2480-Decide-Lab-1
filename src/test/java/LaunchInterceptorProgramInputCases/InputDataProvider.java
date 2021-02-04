@@ -1,4 +1,4 @@
-package lab1.test.LaunchInterceptorProgramInputCases;
+package LaunchInterceptorProgramInputCases;
 
 import lab1.InputData;
 

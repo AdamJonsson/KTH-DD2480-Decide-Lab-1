@@ -1,11 +1,9 @@
-package lab1.test;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import lab1.*;
-import lab1.test.LaunchInterceptorProgramInputCases.InputDataProvider;
+import LaunchInterceptorProgramInputCases.InputDataProvider;
 
 public class LaunchInterceptorProgramTest {
 
