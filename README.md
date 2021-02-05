@@ -8,7 +8,8 @@ The main mechanism of the LIC is the `DECIDE()`-function. The function will outp
 
 ### How to run the program
 The project uses Maven which needs to be installed in order to run this project. Instruction for installing it can be found here: [Installing Apache Maven](http://maven.apache.org/install.html).
-* To run the project, first run `mvn clean install` and then `mvn exec:java` in this folder. You can change the input data in `src/main/java/lab1/Main.java` to test with different parameters.
+* The project has only been tested on **java version 15** and **maven version 3.6.*.** For the best experience, use these versions when running the program.
+* To run the project, first run `mvn clean install` and then `mvn exec:java` in this folder. You can change the input data in `src/main/java/lab1/Main.java` to test the program with different parameters.
 * To run the tests for the project, run `mvn test` in this folder. See the files in `src/test/java/lab1` for details about what is tested.
 
 ## Statement of contributions
